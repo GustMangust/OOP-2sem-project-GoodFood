@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\AddRestaurantPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminMainPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AllRestaurantsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SignUpPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserMainPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="View\AddRestaurantPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminMainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AllRestaurantsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LogInPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SignUpPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserMainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="GoodFood.View.SignUpPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoodFood"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+           mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="300" ResizeMode="NoResize">
+    <Grid Background="#e3edfc">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.19*"></RowDefinition>
+            <RowDefinition Height="0.01*"></RowDefinition>
+            <RowDefinition Height="0.19*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBox Text="{Binding Email}"  Grid.Row="1" FontSize="20" MaxWidth="250" Grid.Column="1" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" Cursor="IBeam" materialDesign:HintAssist.Hint="Email" />
+        <TextBox Text="{Binding Password}" Grid.Row="3" FontSize="20" MaxWidth="250" Grid.Column="1" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" Cursor="IBeam" materialDesign:HintAssist.Hint="Password"/>
+        <TextBox Text="{Binding Name}" Grid.Row="5" FontSize="20" MaxWidth="250" Grid.Column="1" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" Cursor="IBeam" materialDesign:HintAssist.Hint="Name"/>
+        <TextBox Text="{Binding Surname}" Grid.Row="7" FontSize="20" MaxWidth="250" Grid.Column="1" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" Cursor="IBeam" materialDesign:HintAssist.Hint="Surname"/>
+        <Label Grid.Row="8" Grid.Column="1" Content="Uncorrect data" HorizontalAlignment="Left" FontSize="14" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignLabel}" Visibility="{Binding Visibility}"/>
+        <Button Command="{Binding signUp}" Grid.Row="9" Grid.Column="1" MaxWidth="105" MaxHeight="50" Content="Sign Up" Style="{StaticResource MaterialDesignRaisedLightButton}" Cursor="Hand" />
+        <Button Command="{Binding back}" Grid.Row="11" Grid.Column="1" MaxWidth="105" MaxHeight="50" Content="Back" Style="{StaticResource MaterialDesignRaisedLightButton}" Cursor="Hand" />
+    </Grid>
+</Window>
