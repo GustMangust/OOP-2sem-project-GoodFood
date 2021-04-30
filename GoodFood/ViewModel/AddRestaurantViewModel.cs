@@ -159,7 +159,6 @@ namespace GoodFood.ViewModel
         public ICommand addImage => new DelegateCommand(AddImage);
         private void AddImage() 
         {
-            MessageBox.Show(Type_of_cuisine);
             OpenFileDialog dialog = new OpenFileDialog
             {
                 Filter = "Картинки|*.jpg;*.jpeg;*.png",
@@ -185,7 +184,7 @@ namespace GoodFood.ViewModel
             if (Validation.IsRestaurantNameValid(Name) && Validation.IsTimeValid(Start_time) && Validation.IsTimeValid(End_time) && Validation.IsRestaurantNameValid(Type_of_cuisine) && Validation.IsNumberOfTablesValid(Number_of_tables) && ImageSource != null) 
             {
                 Image = new Picture(ImageConverter.ConvertToBitmap(ImageSource as BitmapImage));
-                DB.AddRestaurant(Name, Convert.ToInt32(Number_of_tables), Convert.ToInt32(Start_time.Trim('0')), Convert.ToInt32(End_time.Trim('0')), Image.PictureByteArray, Type_of_cuisine);
+                DB.AddRestaurant(Name, Convert.ToInt32(Number_of_tables), Convert.ToInt32(Start_time.Trim('0')), Convert.ToInt32(End_time.Trim('0')), Image.PictureString, Type_of_cuisine);
                 MessageBox.Show("FUCK");
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoodFood.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -13,11 +14,11 @@ using System.Windows.Shapes;
 namespace GoodFood.View
 {
     /// <summary>
-    /// Логика взаимодействия для UserMainPage.xaml
+    /// Логика взаимодействия для AdminMainPage.xaml
     /// </summary>
-    public partial class UserMainPage : Window
+    public partial class MainWindow : Window
     {
-        public UserMainPage()
+        public MainWindow()
         {
             InitializeComponent();
         }

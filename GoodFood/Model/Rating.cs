@@ -20,5 +20,11 @@ namespace GoodFood.Model
             User_ID = user_ID;
             Rest_ID = rest_ID;
         }
+        public Rating(int rate, int user_ID, int rest_ID)
+        {
+            Rate = rate;
+            User_ID = user_ID;
+            Rest_ID = rest_ID;
+        }
     }
 }

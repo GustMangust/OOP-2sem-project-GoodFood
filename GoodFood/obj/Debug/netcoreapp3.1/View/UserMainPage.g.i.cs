@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using GoodFood;
+using DevExpress.Xpf.DXBinding;
 using GoodFood.View;
 using System;
 using System.Diagnostics;

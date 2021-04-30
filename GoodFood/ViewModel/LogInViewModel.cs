@@ -73,20 +73,12 @@ namespace GoodFood.ViewModel
                     {
                         if (Email == user.Email && Encryption.Encrypt(Password) == user.Password)
                         {
-                            if (user.Is_admin)
-                            {
-                                AdminMainPage win = new AdminMainPage();
+
+                                MainWindow win = new MainWindow();
+                                win.DataContext = new MainViewModel(user.Is_admin);
                                 win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                                 win.Show();
                                 Close();
-                            }
-                            else
-                            {
-                                UserMainPage win = new UserMainPage();
-                                win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                                win.Show();
-                                Close();
-                            }
                         }
                     }
                 

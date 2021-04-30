@@ -3,64 +3,15 @@ using GoodFood.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace GoodFood.ViewModel
 {
     class AllRestaurantsViewModel:ViewModelBase
     {
-        private string name;
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-                RaisePropertyChanged("Name");
-            }
-        }
-        private string number_of_tables;
-        public string Number_of_tables
-        {
-            get
-            {
-                return number_of_tables;
-            }
-            set
-            {
-                number_of_tables = value;
-                RaisePropertyChanged("Number_of_tables");
-            }
-        }
-        private string start_time;
-        public string Start_time
-        {
-            get
-            {
-                return start_time;
-            }
-            set
-            {
-                start_time = value;
-                RaisePropertyChanged("Start_time");
-            }
-        }
-        private string end_time;
-        public string End_time
-        {
-            get
-            {
-                return end_time;
-            }
-            set
-            {
-                end_time = value;
-                RaisePropertyChanged("End_time");
-            }
-        }
         private ObservableCollection<Restaurant> restaurants;
         public ObservableCollection<Restaurant> Restaurants 
         {
@@ -72,6 +23,19 @@ namespace GoodFood.ViewModel
             {
                 restaurants= value;
                 RaisePropertyChanged("Restaurants");
+            }
+        }
+        private ObservableCollection<Rating> ratings;
+        public ObservableCollection<Rating> Ratings
+        {
+            get
+            {
+                return ratings;
+            }
+            set
+            {
+                ratings = value;
+                RaisePropertyChanged("Ratings");
             }
         }
         private Restaurant selectedRestaurant;
@@ -87,9 +51,71 @@ namespace GoodFood.ViewModel
                 RaisePropertyChanged("SelectedRestaurant");
             }
         }
-        public AllRestaurantsViewModel() 
+        private ObservableCollection<Restaurant> SortedRestaurants { get; set; } = new ObservableCollection<Restaurant>();
+        private ObservableCollection<Restaurant> BufferRestaurants { get; set; } = new ObservableCollection<Restaurant>();
+        private ObservableCollection<string> types_of_cuisine;
+        public ObservableCollection<string> Types_of_cuisine
+        { 
+            get 
+            {
+                return types_of_cuisine;
+            }
+            set 
+            {
+                types_of_cuisine = value;
+                RaisePropertyChanged("Types_of_cuisine");
+            }
+        }
+        private string sortByTypes;
+
+        public string SortByTypes
         {
-            Restaurants = new ObservableCollection<Restaurant>(DB.GetRestaurants());
+            get 
+            {
+                return sortByTypes; 
+            }
+            set 
+            {
+                Restaurants = BufferRestaurants;
+                sortByTypes = value;
+                foreach(var rest in Restaurants) 
+                {
+                    if(rest.Type_of_cuisine == value.Substring(value.IndexOf(" ")+1)) 
+                    {
+                        SortedRestaurants.Add(rest);
+                    }
+                }
+                Restaurants = new ObservableCollection<Restaurant>( SortedRestaurants);
+                SortedRestaurants.Clear();
+                RaisePropertyChanged("SortByTypes");
+            }
+        }
+
+        public AllRestaurantsViewModel()
+        {
+            
+            BufferRestaurants = new ObservableCollection<Restaurant>(DB.GetRestaurants());
+            Restaurants = BufferRestaurants;
+            Ratings = new ObservableCollection<Rating>(DB.GetRatings());
+            Types_of_cuisine = new ObservableCollection<string>();
+            
+            foreach (var rest in Restaurants) 
+            {
+                int index = 0;
+                int sum_of_rates = 0;
+                foreach(var rate in Ratings) 
+                {
+                    if(rest.Rest_ID == rate.Rest_ID) 
+                    {
+                        sum_of_rates += rate.Rate;
+                        index++;
+                    }
+                }
+                if(index!=0)
+                    rest.Rating = Math.Round((decimal)sum_of_rates / (decimal)index,1);
+                Types_of_cuisine.Add(rest.Type_of_cuisine);
+            }
+            Types_of_cuisine = new ObservableCollection<string>( Types_of_cuisine.Distinct<string>());
         }
     }
 }

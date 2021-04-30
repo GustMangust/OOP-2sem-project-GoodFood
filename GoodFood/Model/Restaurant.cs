@@ -16,32 +16,34 @@ namespace GoodFood.Model
         public int Number_of_tables { get; set; }
         public int Start_time { get; set; }
         public int End_time { get; set; }
-        public byte[] Image { get; set; }
         public string Type_of_cuisine { get; set; }
+        public string Restaurant_Image { get; set; }
         [NotMapped]
         public Picture Restaurant_Picture { get; set; }
+        [NotMapped]
+        public Decimal Rating{ get; set; }
         [NotMapped]
         public ImageSource Restaurant_ImageSource { get; set; }
         public Restaurant() 
         {
         }
-        public Restaurant(int id,string name,int num,int start,int end,byte[] im,string type) 
+        public Restaurant(int id,string name,int num,int start,int end,string im,string type) 
         {
             Rest_ID = id;
             Name = name;
             Number_of_tables = num;
             Start_time = start;
             End_time = end;
-            Image = im;
+            Restaurant_Image = im;
             Type_of_cuisine = type;
         }
-        public Restaurant(string name,int num,int start,int end,byte[] im,string type) 
+        public Restaurant(string name,int num,int start,int end,string im,string type) 
         {
             Name = name;
             Number_of_tables = num;
             Start_time = start;
             End_time = end;
-            Image = im;
+            Restaurant_Image = im;
             Type_of_cuisine = type;
         }
         /*public int Rest_ID

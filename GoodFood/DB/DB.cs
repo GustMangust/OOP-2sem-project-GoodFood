@@ -83,7 +83,7 @@ namespace GoodFood
                 MessageBox.Show(e.InnerException.Message);
             }
         }
-        public static void AddRestaurant(string name, int number_of_tables, int start,int end, byte[] image,string type) 
+        public static void AddRestaurant(string name, int number_of_tables, int start,int end, string image,string type) 
         {
             try
             {
@@ -111,7 +111,7 @@ namespace GoodFood
                     tasks.Add(Task.Run(() =>
                     {
                         el.Restaurant_Picture = new Picture();
-                        el.Restaurant_Picture.PictureByteArray = el.Image;
+                        el.Restaurant_Picture.PictureString = el.Restaurant_Image;
                         el.Restaurant_ImageSource = ImageConverter.ImageSourceFromBitmap(el.Restaurant_Picture.Source);
                         el.Restaurant_ImageSource.Freeze();
                     }));

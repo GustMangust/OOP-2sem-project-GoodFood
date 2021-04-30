@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 
@@ -27,6 +28,26 @@ namespace GoodFood.Model
         {
             get { return source; }
             set { source = value; }
+        }
+        public string PictureString
+        {
+            get
+            {
+                MemoryStream ms = new MemoryStream();
+                source.Save(ms, ImageFormat.Bmp);
+                byte[] byteImage = ms.ToArray();
+                return Convert.ToBase64String(byteImage); // Get Base64
+            }
+            set
+            {
+                Bitmap bmpReturn;
+                byte[] byteBuffer = Convert.FromBase64String(value);
+                MemoryStream memoryStream = new MemoryStream(byteBuffer);
+                memoryStream.Position = 0;
+                bmpReturn = (Bitmap)Image.FromStream(memoryStream);
+                memoryStream.Close();
+                source = bmpReturn;
+            }
         }
         // Set PictureByteArray Property 
         // to be an attribute of the Picture node 

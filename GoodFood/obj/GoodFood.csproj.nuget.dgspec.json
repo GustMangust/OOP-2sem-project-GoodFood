@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\Desktop\\Labs-master\\GoodFood\\GoodFood.csproj": {}
+    "D:\\Git\\OOP-2sem-project-GoodFood\\GoodFood\\GoodFood.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\Desktop\\Labs-master\\GoodFood\\GoodFood.csproj": {
+    "D:\\Git\\OOP-2sem-project-GoodFood\\GoodFood\\GoodFood.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\Labs-master\\GoodFood\\GoodFood.csproj",
+        "projectUniqueName": "D:\\Git\\OOP-2sem-project-GoodFood\\GoodFood\\GoodFood.csproj",
         "projectName": "GoodFood",
-        "projectPath": "C:\\Users\\Student\\Desktop\\Labs-master\\GoodFood\\GoodFood.csproj",
-        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\Labs-master\\GoodFood\\obj\\",
+        "projectPath": "D:\\Git\\OOP-2sem-project-GoodFood\\GoodFood\\GoodFood.csproj",
+        "packagesPath": "C:\\Users\\GustMangust\\.nuget\\packages\\",
+        "outputPath": "D:\\Git\\OOP-2sem-project-GoodFood\\GoodFood\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\GustMangust\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +81,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

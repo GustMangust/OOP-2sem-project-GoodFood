@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 
 namespace GoodFood.ViewModel
@@ -22,6 +23,21 @@ namespace GoodFood.ViewModel
 				RaisePropertyChanged("SelectedViewModel");
 			}
 		}
+		private Visibility visibility;
+
+		public Visibility Visibility
+		{
+			get 
+			{ 
+				return visibility;
+			}
+			set 
+			{ 
+				visibility = value;
+				RaisePropertiesChanged("Visibility");
+			}
+		}
+
 		public ICommand<object> updateViewModel => new DelegateCommand<object>(UpdateViewModel);
 		private void UpdateViewModel(object param) 
 		{
@@ -29,6 +45,13 @@ namespace GoodFood.ViewModel
 				SelectedViewModel = new AddRestaurantViewModel();
 			else if (param.ToString() == "AllRestaurants")
 				SelectedViewModel = new AllRestaurantsViewModel();
+		}
+		public MainViewModel(bool is_admin) 
+		{
+			if (!is_admin) 
+			{
+				Visibility = Visibility.Collapsed;
+			}
 		}
 	}
 	

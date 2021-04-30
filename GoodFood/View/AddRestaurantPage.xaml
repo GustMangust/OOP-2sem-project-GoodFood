@@ -32,8 +32,8 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0.4*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="0,0,0,0">
-            <TextBox Text="{Binding Name,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Name"/>
+        <StackPanel Margin="0,70,0,0" >
+            <TextBox Text="{Binding Name,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0" Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Name"/>
             <TextBox materialDesign:HintAssist.Hint="Type of cuisine" Style="{StaticResource textBox}"  Text="{Binding Type_of_cuisine,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox Text="{Binding Number_of_tables,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Amount of tables"/>
             <StackPanel Orientation="Horizontal"  Margin="0,60,0,0" HorizontalAlignment="Center">
@@ -69,6 +69,6 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Image Stretch="Fill" Source="{Binding ImageSource, UpdateSourceTrigger=PropertyChanged}" Margin="0,85,0,0" VerticalAlignment="Top" Grid.Column="1" Width="150" Height="150"/>
+        <Image Stretch="Fill" Source="{Binding ImageSource, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="0,155,0,0" VerticalAlignment="Top" Grid.Column="1" Width="150" Height="150"/>
     </Grid>
 </UserControl>

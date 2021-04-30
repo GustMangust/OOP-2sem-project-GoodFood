@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZtloTgsS1amhThI6OE7Rt3S9AZRkVxFHKXE3d1wp8avdMynpGR+Y6uF5Uz2oc/UvZuxdq9Afb/v77xqE5rUAOQ==",
+  "dgSpecHash": "s8ZpdDZM5f7kJrYlMJukLTsTzblsYpC/65MJpIDsZXJif4kDEtMuttnXo8QJjk0InGIPZjZRnLXX3Pb6HZaFRg==",
   "success": true,
-  "projectFilePath": "D:\\Git\\Labs\\GoodFood\\GoodFood.csproj",
+  "projectFilePath": "D:\\Git\\OOP-2sem-project-GoodFood\\GoodFood\\GoodFood.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GustMangust\\.nuget\\packages\\devexpressmvvm\\20.2.3\\devexpressmvvm.20.2.3.nupkg.sha512",
     "C:\\Users\\GustMangust\\.nuget\\packages\\materialdesigncolors\\2.0.0\\materialdesigncolors.2.0.0.nupkg.sha512",

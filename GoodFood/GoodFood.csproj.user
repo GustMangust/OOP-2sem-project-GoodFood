@@ -10,7 +10,7 @@
     <Compile Update="View\AddRestaurantPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\AdminMainPage.xaml.cs">
+    <Compile Update="View\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AllRestaurantsPage.xaml.cs">
@@ -19,15 +19,12 @@
     <Compile Update="View\SignUpPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\UserMainPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\AddRestaurantPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\AdminMainPage.xaml">
+    <Page Update="View\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AllRestaurantsPage.xaml">
@@ -37,9 +34,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SignUpPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\UserMainPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

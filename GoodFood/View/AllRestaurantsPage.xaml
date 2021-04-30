@@ -13,33 +13,50 @@
          FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800">
-    <Grid Background="Transparent">
-        <ListBox Margin="15,0,0,0" ItemsSource="{Binding Restaurants}" SelectedItem="{Binding SelectedRestaurant}">
+    <Grid Background="#e3edfc">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Text="Тип кухни" ItemsSource="{Binding Types_of_cuisine}" Width="200" Height="35" HorizontalAlignment="Right" Margin="0,20,40,20" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SortByTypes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <ListBox ScrollViewer.VerticalScrollBarVisibility ="Hidden"  Grid.Row="1" ItemsSource="{Binding Restaurants}" SelectedItem="{Binding SelectedRestaurant}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <VirtualizingStackPanel IsItemsHost="True" Orientation="Vertical"/>
+                    <WrapPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Width="100" Height="100" Stretch="Fill" Source="{Binding Path=Image}"/>
-                        <StackPanel Margin="20,0,0,0">
+                    <DockPanel Width="260" Height="270">
+                        <Image DockPanel.Dock="Top"  Width="257" Height="127" Stretch="Fill" Source="{Binding Path=Restaurant_Image}"/>
+                        <StackPanel Margin="0,25,0,0">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Ресторан "/>
-                                <TextBlock Text="{Binding Path=Name}"/>
+                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}" Content="Ресторан "/>
+                                <Label FontFamily="{StaticResource MaterialDesignFont}" Margin="0 0 -7 0">"</Label>
+                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}">
+                                    <Label.Content>
+                                        <Binding StringFormat="{} -  \&quot;{0}\&quot;" Path="Name"/>
+                                    </Label.Content>
+                                </Label>
+                                <Label Margin="-7 0 0 0">"</Label>
+
                             </StackPanel>
-                            <TextBlock Text="{Binding Path=Type_of_cuisine}"/>
-                            <TextBlock Text="{Binding Path=Number_of_tables}"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Path=Start_time}"/>
-                                <TextBlock Text="-"/>
-                                <TextBlock Text="{Binding Path=End_time}"/>
+                            <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}" Margin="0,0,0,0" Content="{Binding Path=Type_of_cuisine}"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="Время работы: "/>
+                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="{Binding Path=Start_time}"/>
+                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="-"/>
+                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="{Binding Path=End_time}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                                <materialDesign:PackIcon Kind="Star" VerticalAlignment="Center"/>
+                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="{Binding Path=Rating}"/>
                             </StackPanel>
                         </StackPanel>
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        
     </Grid>
 </UserControl>
