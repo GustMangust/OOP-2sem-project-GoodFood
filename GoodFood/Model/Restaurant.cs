@@ -17,7 +17,9 @@ namespace GoodFood.Model
         public int Start_time { get; set; }
         public int End_time { get; set; }
         public string Type_of_cuisine { get; set; }
-        public string Restaurant_Image { get; set; }
+        [NotMapped]
+        public byte[] Restaurant_Byte_Image { get; set; }
+        public string Restaurant_String_Image { get; set; }
         [NotMapped]
         public Picture Restaurant_Picture { get; set; }
         [NotMapped]
@@ -34,50 +36,17 @@ namespace GoodFood.Model
             Number_of_tables = num;
             Start_time = start;
             End_time = end;
-            Restaurant_Image = im;
+            Restaurant_String_Image = im;
             Type_of_cuisine = type;
         }
-        public Restaurant(string name,int num,int start,int end,string im,string type) 
+        public Restaurant(string name,int num,int start,int end, string im, string type) 
         {
             Name = name;
             Number_of_tables = num;
             Start_time = start;
             End_time = end;
-            Restaurant_Image = im;
+            Restaurant_String_Image = im;
             Type_of_cuisine = type;
         }
-        /*public int Rest_ID
-        {
-            get 
-            {
-                return rest_ID;
-            }
-            set 
-            {
-                rest_ID = value;
-            }
-        }
-        public int Start_time
-        {
-            get
-            {
-                return start_time;
-            }
-            set
-            {
-                start_time = value;
-            }
-        }
-        public int End_time
-        {
-            get
-            {
-                return end_time;
-            }
-            set
-            {
-                end_time = value;
-            }
-        }*/
     }
 }

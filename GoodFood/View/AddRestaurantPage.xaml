@@ -33,12 +33,12 @@
             <ColumnDefinition Width="0.4*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="0,70,0,0" >
-            <TextBox Text="{Binding Name,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0" Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Name"/>
-            <TextBox materialDesign:HintAssist.Hint="Type of cuisine" Style="{StaticResource textBox}"  Text="{Binding Type_of_cuisine,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Text="{Binding Number_of_tables,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Amount of tables"/>
+            <TextBox Text="{Binding Name,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0" Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Name" Cursor="IBeam"/>
+            <TextBox materialDesign:HintAssist.Hint="Type of cuisine" Style="{StaticResource textBox}"  Text="{Binding Type_of_cuisine,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Cursor="IBeam" />
+            <TextBox Text="{Binding Number_of_tables,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Amount of tables" Cursor="IBeam"/>
             <StackPanel Orientation="Horizontal"  Margin="0,60,0,0" HorizontalAlignment="Center">
                 <Label Style="{StaticResource MaterialDesignLabel}" VerticalAlignment="Center" FontSize="20" Content="Working hours:" HorizontalAlignment="Center" Margin="0,0,155,0"/>
-                <TextBox Text="{Binding Start_time,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignTextBox}" ToolTip="{Binding ErrorCollection[Start_time]}" FontSize="20" VerticalAlignment="Center" Margin="10,0,10,0" Width="30" materialDesign:HintAssist.Hint="00">
+                <TextBox Text="{Binding Start_time,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignTextBox}" ToolTip="{Binding ErrorCollection[Start_time]}" FontSize="20" VerticalAlignment="Center" Margin="10,0,10,0" Width="30" materialDesign:HintAssist.Hint="00" Cursor="IBeam">
                     <Validation.ErrorTemplate>
                         <ControlTemplate />
                     </Validation.ErrorTemplate>

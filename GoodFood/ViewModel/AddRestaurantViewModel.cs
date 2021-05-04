@@ -48,12 +48,16 @@ namespace GoodFood.ViewModel
                     case "Start_time":
                         if (string.IsNullOrWhiteSpace(Start_time))
                             result = "Не может быть пустым";
+                        else if (Start_time == End_time)
+                            result = "Введите другое время";
                         else if (!Validation.IsTimeValid(Start_time))
                             result = "Неверный формат или неверные символы";
                         break;
                     case "End_time":
                         if (string.IsNullOrWhiteSpace(End_time))
                             result = "Не может быть пустым";
+                        else if (Start_time == End_time)
+                            result = "Введите другое время";
                         else if (!Validation.IsTimeValid(End_time))
                             result = "Неверный формат или неверные символы";
                         break;
@@ -113,7 +117,7 @@ namespace GoodFood.ViewModel
             {
                 return end_time;
             }
-            set 
+            set
             {
                 end_time=value;
                 RaisePropertyChanged("End_time");
@@ -181,17 +185,15 @@ namespace GoodFood.ViewModel
 
         private void AddRestaurant() 
         {
-            if (Validation.IsRestaurantNameValid(Name) && Validation.IsTimeValid(Start_time) && Validation.IsTimeValid(End_time) && Validation.IsRestaurantNameValid(Type_of_cuisine) && Validation.IsNumberOfTablesValid(Number_of_tables) && ImageSource != null) 
+            if (Validation.IsRestaurantNameValid(Name) && Start_time!=End_time && Validation.IsTimeValid(Start_time) && Validation.IsTimeValid(End_time) && Validation.IsRestaurantNameValid(Type_of_cuisine) && Validation.IsNumberOfTablesValid(Number_of_tables) && ImageSource != null) 
             {
                 Image = new Picture(ImageConverter.ConvertToBitmap(ImageSource as BitmapImage));
                 DB.AddRestaurant(Name, Convert.ToInt32(Number_of_tables), Convert.ToInt32(Start_time.Trim('0')), Convert.ToInt32(End_time.Trim('0')), Image.PictureString, Type_of_cuisine);
-                MessageBox.Show("FUCK");
             }
         }
 
         public AddRestaurantViewModel() 
         {
-            ImageSource = new BitmapImage(new Uri(@"/Images/no-image.jpg", UriKind.RelativeOrAbsolute));
         }
     }
 }

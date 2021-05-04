@@ -44,7 +44,7 @@ namespace GoodFood.ViewModel
 			if (param.ToString() == "AddRestaurant")
 				SelectedViewModel = new AddRestaurantViewModel();
 			else if (param.ToString() == "AllRestaurants")
-				SelectedViewModel = new AllRestaurantsViewModel();
+				SelectedViewModel = new AllRestaurantsViewModel(this);
 		}
 		public MainViewModel(bool is_admin) 
 		{

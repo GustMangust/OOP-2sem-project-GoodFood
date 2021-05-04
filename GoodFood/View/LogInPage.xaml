@@ -13,7 +13,7 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
            mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="400" ResizeMode="NoResize" Cursor="IBeam">
     <Grid Background="#e3edfc">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>

@@ -3,6 +3,7 @@ using GoodFood.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -10,8 +11,30 @@ using System.Windows.Controls;
 
 namespace GoodFood.ViewModel
 {
-    class AllRestaurantsViewModel:ViewModelBase
+    class AllRestaurantsViewModel:ViewModelBase, IDataErrorInfo
     {
+        public string Error { get { return null; } }
+        public Dictionary<string, string> ErrorCollection { get; private set; } = new Dictionary<string, string>();
+        public string this[string name]
+        {
+            get
+            {
+                string result = null;
+                switch (name)
+                {
+                    case "Time":
+                        if (!Validation.IsTimeValid(Time))
+                            result = "Неверный формат или неверные символы";
+                        break;
+                }
+                if (ErrorCollection.ContainsKey(name))
+                    ErrorCollection[name] = result;
+                else if (result != null)
+                    ErrorCollection.Add(name, result);
+                RaisePropertyChanged("ErrorCollection");
+                return result;
+            }
+        }
         private ObservableCollection<Restaurant> restaurants;
         public ObservableCollection<Restaurant> Restaurants 
         {
@@ -66,6 +89,31 @@ namespace GoodFood.ViewModel
                 RaisePropertyChanged("Types_of_cuisine");
             }
         }
+        private string time;
+
+        public string Time
+        {
+            get 
+            {
+                return time; 
+            }
+            set 
+            { 
+                time = value;
+                Restaurants = BufferRestaurants;
+                foreach (var rest in Restaurants)
+                {
+                    if(value!=null && value !="")
+                        if (Convert.ToInt32(value.Trim('0')) >=rest.Start_time && Convert.ToInt32(value.Trim('0')) <=rest.End_time)
+                        {
+                            SortedRestaurants.Add(rest);
+                        }
+                }
+                Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
+                RaisePropertyChanged("Time");
+            }
+        }
+
         private string sortByTypes;
 
         public string SortByTypes
@@ -85,15 +133,14 @@ namespace GoodFood.ViewModel
                         SortedRestaurants.Add(rest);
                     }
                 }
-                Restaurants = new ObservableCollection<Restaurant>( SortedRestaurants);
+                Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
                 SortedRestaurants.Clear();
                 RaisePropertyChanged("SortByTypes");
             }
         }
-
-        public AllRestaurantsViewModel()
+        public AllRestaurantsViewModel(MainViewModel vm)
         {
-            
+            vm.SelectedViewModel = new AddRestaurantViewModel();
             BufferRestaurants = new ObservableCollection<Restaurant>(DB.GetRestaurants());
             Restaurants = BufferRestaurants;
             Ratings = new ObservableCollection<Rating>(DB.GetRatings());

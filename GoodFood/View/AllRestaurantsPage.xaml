@@ -18,7 +18,21 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ComboBox Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Text="Тип кухни" ItemsSource="{Binding Types_of_cuisine}" Width="200" Height="35" HorizontalAlignment="Right" Margin="0,20,40,20" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SortByTypes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <StackPanel Margin="0,20,40,20" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Label Margin="0,0,15,0" VerticalAlignment="Center" FontSize="20">Выберите время:</Label>
+            <TextBox Width="40" Margin="0,0,80,0" Style="{StaticResource MaterialDesignTextBox}" HorizontalContentAlignment="Center" FontSize="20" materialDesign:HintAssist.Hint="00" VerticalAlignment="Center"  Text="{Binding Time,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding ErrorCollection[Time]}" Cursor="IBeam">
+                <Validation.ErrorTemplate>
+                    <ControlTemplate />
+                </Validation.ErrorTemplate>
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type materialDesign:SmartHint}">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Label Margin="0,0,15,0" VerticalAlignment="Center" FontSize="20">Вид кухни:</Label>
+            <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"  ItemsSource="{Binding Types_of_cuisine}" Width="200" Height="40" HorizontalAlignment="Right" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SortByTypes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        </StackPanel>
         <ListBox ScrollViewer.VerticalScrollBarVisibility ="Hidden"  Grid.Row="1" ItemsSource="{Binding Restaurants}" SelectedItem="{Binding SelectedRestaurant}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -28,7 +42,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel Width="260" Height="270">
-                        <Image DockPanel.Dock="Top"  Width="257" Height="127" Stretch="Fill" Source="{Binding Path=Restaurant_Image}"/>
+                        <Image DockPanel.Dock="Top"  Width="257" Height="127" Stretch="Fill" Source="{Binding Path=Restaurant_ImageSource}"/>
                         <StackPanel Margin="0,25,0,0">
                             <StackPanel Orientation="Horizontal">
                                 <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}" Content="Ресторан "/>
@@ -39,7 +53,6 @@
                                     </Label.Content>
                                 </Label>
                                 <Label Margin="-7 0 0 0">"</Label>
-
                             </StackPanel>
                             <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}" Margin="0,0,0,0" Content="{Binding Path=Type_of_cuisine}"/>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
@@ -53,6 +66,9 @@
                                 <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="{Binding Path=Rating}"/>
                             </StackPanel>
                         </StackPanel>
+                        <DockPanel.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding DataContext.MyCommand, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"/>
+                        </DockPanel.InputBindings>
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

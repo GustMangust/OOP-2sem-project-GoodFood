@@ -111,7 +111,7 @@ namespace GoodFood
                     tasks.Add(Task.Run(() =>
                     {
                         el.Restaurant_Picture = new Picture();
-                        el.Restaurant_Picture.PictureString = el.Restaurant_Image;
+                        el.Restaurant_Picture.PictureString = el.Restaurant_String_Image;
                         el.Restaurant_ImageSource = ImageConverter.ImageSourceFromBitmap(el.Restaurant_Picture.Source);
                         el.Restaurant_ImageSource.Freeze();
                     }));
