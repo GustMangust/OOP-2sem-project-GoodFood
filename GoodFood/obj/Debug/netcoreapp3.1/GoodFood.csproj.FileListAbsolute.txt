@@ -152,3 +152,5 @@ D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\GoodFood.pdb
 D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\GoodFood.genruntimeconfig.cache
 D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\MainWindow.g.cs
 D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\MainWindow.baml
+D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\RestaurantPage.g.cs
+D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\RestaurantPage.baml

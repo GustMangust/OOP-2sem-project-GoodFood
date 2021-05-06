@@ -19,6 +19,9 @@
             <DataTemplate DataType="{x:Type viewmodel:AllRestaurantsViewModel}">
                 <view:AllRestaurantsPage/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodel:RestaurantPageViewModel}">
+                <view:RestaurantPage/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

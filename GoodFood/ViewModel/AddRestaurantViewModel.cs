@@ -188,7 +188,16 @@ namespace GoodFood.ViewModel
             if (Validation.IsRestaurantNameValid(Name) && Start_time!=End_time && Validation.IsTimeValid(Start_time) && Validation.IsTimeValid(End_time) && Validation.IsRestaurantNameValid(Type_of_cuisine) && Validation.IsNumberOfTablesValid(Number_of_tables) && ImageSource != null) 
             {
                 Image = new Picture(ImageConverter.ConvertToBitmap(ImageSource as BitmapImage));
-                DB.AddRestaurant(Name, Convert.ToInt32(Number_of_tables), Convert.ToInt32(Start_time.Trim('0')), Convert.ToInt32(End_time.Trim('0')), Image.PictureString, Type_of_cuisine);
+                int start;
+                int end;
+                if (Start_time.Length == 1)
+                    start = Convert.ToInt32(Start_time.Trim('0'));
+                else start = Convert.ToInt32(Start_time);
+
+                if (End_time.Length == 1)
+                    end = Convert.ToInt32(End_time.Trim('0'));
+                else end = Convert.ToInt32(End_time);
+                DB.AddRestaurant(Name, Convert.ToInt32(Number_of_tables),start , end, Image.PictureString, Type_of_cuisine);
             }
         }
 

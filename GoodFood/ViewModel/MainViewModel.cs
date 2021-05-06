@@ -10,7 +10,19 @@ namespace GoodFood.ViewModel
     class MainViewModel:ViewModelBase
     {
 		private ViewModelBase selectedViewModel = new AddRestaurantViewModel();
-
+		private bool is_admin;
+		public bool Is_admin 
+		{
+			get 
+			{
+				return is_admin;
+			}
+			set 
+			{
+				is_admin = value;
+				RaisePropertyChanged("Is_admin");
+			}
+		}
 		public ViewModelBase SelectedViewModel
 		{
 			get 
@@ -48,7 +60,8 @@ namespace GoodFood.ViewModel
 		}
 		public MainViewModel(bool is_admin) 
 		{
-			if (!is_admin) 
+			Is_admin = is_admin;
+			if (!Is_admin) 
 			{
 				Visibility = Visibility.Collapsed;
 			}

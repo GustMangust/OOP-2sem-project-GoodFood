@@ -16,6 +16,9 @@
     <Compile Update="View\AllRestaurantsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\RestaurantPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SignUpPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LogInPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\RestaurantPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SignUpPage.xaml">

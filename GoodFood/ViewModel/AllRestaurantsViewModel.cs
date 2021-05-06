@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace GoodFood.ViewModel
 {
@@ -138,9 +139,17 @@ namespace GoodFood.ViewModel
                 RaisePropertyChanged("SortByTypes");
             }
         }
+        private MainViewModel viewmodel;
+
+        public ICommand loadRestaurantPage => new DelegateCommand(LoadRestaurantPage);
+        private void LoadRestaurantPage() 
+        {
+            viewmodel.SelectedViewModel = new RestaurantPageViewModel(viewmodel,this);
+
+        }
         public AllRestaurantsViewModel(MainViewModel vm)
         {
-            vm.SelectedViewModel = new AddRestaurantViewModel();
+            viewmodel = vm;
             BufferRestaurants = new ObservableCollection<Restaurant>(DB.GetRestaurants());
             Restaurants = BufferRestaurants;
             Ratings = new ObservableCollection<Rating>(DB.GetRatings());
