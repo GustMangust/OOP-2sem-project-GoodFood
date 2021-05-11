@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace GoodFood.ViewModel
@@ -92,9 +93,11 @@ namespace GoodFood.ViewModel
                 }
             }
         }
-        public ICommand signUp => new DelegateCommand(SignUp);
-        private void SignUp() 
+        public ICommand<object> signUp => new DelegateCommand<object>(SignUp);
+        private void SignUp(object param) 
         {
+            var passwordBox = param as PasswordBox;
+            Password = passwordBox.Password;
             if (Validation.IsEmailValid(Email) && Validation.IsNameSurnameValid(Name) && Validation.IsNameSurnameValid(Surname) && Validation.IsPasswordValid(Password))
             {
                 BindingList<User> users = DB.GetUsers();

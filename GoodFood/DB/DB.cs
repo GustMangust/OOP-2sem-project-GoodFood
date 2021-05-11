@@ -69,6 +69,20 @@ namespace GoodFood
                 return ratings;
             }
         }
+        public static void AddBooking(int rest_id, int user_id, DateTime date,int table)
+        {
+            try
+            {
+                BookingContext db = new BookingContext(optionsBooking);
+                Booking booking = new Booking(rest_id, user_id, date, table);
+                db.Booking.Add(booking);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.InnerException.Message);
+            }
+        }
         public static void AddUser(string email, string hashPass, string name,string surname) 
         {
             try
@@ -88,9 +102,22 @@ namespace GoodFood
             try
             {
                 RestaurantContext db = new RestaurantContext(optionsRestaurant);
-                MessageBox.Show(name);
                 Restaurant rest = new Restaurant(name, number_of_tables, start, end, image, type);
                 db.Restaurant.Add(rest);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.InnerException.Message);
+            }
+        }
+        public static void AddRating(int rest_id,int user_id,int rate)
+        {
+            try
+            {
+                RatingContext db = new RatingContext(optionsRating);
+                Rating rating = new Rating(rate,user_id,rest_id);
+                db.Rating.Add(rating);
                 db.SaveChanges();
             }
             catch (Exception e)
@@ -125,6 +152,20 @@ namespace GoodFood
             {
                 MessageBox.Show(e.Message);
                 return restaurants;
+            }
+        }
+
+        public static void EditRating(Rating rating)
+        {
+            try
+            {
+                RatingContext db = new RatingContext(optionsRating);
+                db.Rating.Update(rating);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
     }

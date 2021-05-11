@@ -13,8 +13,8 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
            mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400" ResizeMode="NoResize">
-    <Grid Background="#e3edfc">
+        Title="GoodFood" Height="506" Width="450" ResizeMode="NoResize">
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -26,15 +26,15 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="1">
-            <TextBox Text="{Binding Email}"   FontSize="20" MaxWidth="250" Margin="0 50 0 0" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" Cursor="IBeam" materialDesign:HintAssist.Hint="Email" />
-            <TextBox Text="{Binding Password}"  FontSize="20" MaxWidth="250" Margin="0 20 0 0"  BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" Cursor="IBeam" materialDesign:HintAssist.Hint="Password"/>
-            <TextBox Text="{Binding Name}"  FontSize="20" MaxWidth="250" Margin="0 20 0 0"  BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" Cursor="IBeam" materialDesign:HintAssist.Hint="Name"/>
-            <TextBox Text="{Binding Surname}" FontSize="20" MaxWidth="250" Margin="0 20 0 0" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" Cursor="IBeam" materialDesign:HintAssist.Hint="Surname"/>
+            <TextBox Text="{Binding Email}"   FontSize="20" MaxWidth="250" Margin="0 50 0 0" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#c33124"  materialDesign:HintAssist.FontFamily="Roboto" Cursor="IBeam" materialDesign:HintAssist.Hint="Электронная почта" />
+            <PasswordBox x:Name="PasswordBox" PasswordChar="*"   FontSize="20" MaxWidth="250" Margin="0 20 0 0"  BorderBrush="Black" Style="{DynamicResource MaterialDesignPasswordBox}" materialDesign:TextFieldAssist.UnderlineBrush="#c33124"  materialDesign:HintAssist.FontFamily="Roboto" Cursor="IBeam" materialDesign:HintAssist.Hint="Пароль"/>
+            <TextBox Text="{Binding Name}"  FontSize="20" MaxWidth="250" Margin="0 20 0 0"  BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#c33124"  materialDesign:HintAssist.FontFamily="Roboto" Cursor="IBeam" materialDesign:HintAssist.Hint="Имя"/>
+            <TextBox Text="{Binding Surname}" FontSize="20" MaxWidth="250" Margin="0 20 0 0" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#c33124"  materialDesign:HintAssist.FontFamily="Roboto" Cursor="IBeam" materialDesign:HintAssist.Hint="Фамилия"/>
         </StackPanel>
-        <Label Grid.Row="1" Grid.Column="1" Content="Uncorrect data" Margin="0 10 0 0" HorizontalAlignment="Left" FontSize="14" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignLabel}" Visibility="{Binding Visibility}"/>
-        <StackPanel Grid.Row="2" Grid.Column="1">
-            <Button Command="{Binding signUp}"  Width="125" Height="40" Margin="0 20 0 0" Content="Sign Up" Style="{StaticResource MaterialDesignRaisedLightButton}" Cursor="Hand" />
-            <Button Command="{Binding back}" Grid.Row="2" Grid.Column="1" Margin="0 15 0 0" Width="125" Height="40" Content="Back" Style="{StaticResource MaterialDesignRaisedLightButton}" Cursor="Hand" />
+        <Label Grid.Row="1" Grid.Column="1" Content="Неверные данные" Margin="0 10 0 0" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="14" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignLabel}" Visibility="{Binding Visibility}"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="0 40 0 0">
+            <Button Command="{Binding signUp}" CommandParameter="{Binding ElementName=PasswordBox}" Background="#e8a628" FontFamily="Roboto"  Foreground="#3B0F0B" Width="125" Height="40" Margin="0 20 0 0" Content="Регистрация" Style="{StaticResource MaterialDesignRaisedLightButton}" Cursor="Hand" />
+            <Button Command="{Binding back}" Background="#f98365" FontFamily="Roboto"  Foreground="#3B0F0B" Grid.Row="2" Grid.Column="1" Margin="0 15 0 0" Width="125" Height="40" Content="Назад" Style="{StaticResource MaterialDesignRaisedLightButton}" Cursor="Hand" />
         </StackPanel>
     </Grid>
 </Window>

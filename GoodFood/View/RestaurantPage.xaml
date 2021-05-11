@@ -12,7 +12,7 @@
          TextOptions.TextRenderingMode="Auto"
          FontFamily="{DynamicResource MaterialDesignFont}"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800">
+             d:DesignHeight="768" d:DesignWidth="1024" Cursor="Hand">
     <UserControl.Resources>
         <Style x:Key="textBox" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="materialDesign:ValidationAssist.OnlyShowOnFocus" Value="True" />
@@ -30,9 +30,9 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="30 0 0 0" >
-            <Image Source="{Binding Image}" Width="250" Height="200"/>
-            <StackPanel Margin="70 0 0 0" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="30 70 0 0" >
+            <Image Source="{Binding Image}" Width="265" Height="200"/>
+            <StackPanel Margin="70 35 0 0" >
                 <StackPanel Orientation="Horizontal">
                     <Label FontSize="24" Content="Ресторан:" Style="{StaticResource MaterialDesignLabel}"/>
                     <Label FontSize="25" FontStyle="Italic" Margin="10 0 0 0" Content="{Binding Name}" Style="{StaticResource MaterialDesignLabel}"/>
@@ -49,17 +49,26 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <StackPanel HorizontalAlignment="Left">
+        <StackPanel Grid.Row="1" Margin="30 0 0 0" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left" Margin="0 60 0 0">
                 <Label FontSize="24" Content="Забронировать столик" Style="{StaticResource MaterialDesignLabel}"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ComboBox  Style="{StaticResource MaterialDesignFloatingHintComboBox}"  ItemsSource="{Binding List_of_time}" Width="50" Height="40"  IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Time, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                    <ComboBox Margin="20 0 20 0" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  ItemsSource="{Binding List_of_months}" Width="50" Height="40" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Selected_month, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                    <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" ScrollViewer.VerticalScrollBarVisibility="Auto"  ItemsSource="{Binding List_of_days}"  Width="50" Height="40" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Selected_day, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
+                    <ComboBox  Style="{StaticResource MaterialDesignFloatingHintComboBox}"  ItemsSource="{Binding List_of_time}" Width="50" Height="40" HorizontalAlignment="Center" materialDesign:HintAssist.HelperText="Время"  IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Selected_time, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ComboBox Margin="20 0 20 0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding List_of_months}" HorizontalAlignment="Center" materialDesign:HintAssist.HelperText="Месяц" Width="70" Height="40" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Selected_month, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="0 0 20 0" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" materialDesign:HintAssist.HelperText="День" ItemsSource="{Binding List_of_days}"  Width="50" Height="40" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Selected_day, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" materialDesign:HintAssist.HelperText="Номер столика" ItemsSource="{Binding List_of_tables}"  Width="71" Height="40" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Selected_table, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </StackPanel>
-                <TextBox Style="{StaticResource textBox}"/>
-                <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Command="{Binding restaurantBooking}" Height="30" Width="50" Cursor="Hand">
-                    <materialDesign:PackIcon Kind="Adjust"></materialDesign:PackIcon>
+                <Button Style="{StaticResource MaterialDesignRaisedLightButton}"  Command="{Binding restaurantBooking}" Margin="0 40 0 0" Height="30" Width="60" Cursor="Hand">
+                    <materialDesign:PackIcon Kind="Check"></materialDesign:PackIcon>
+                </Button>
+            </StackPanel>
+
+
+            <StackPanel Margin="80 60 0 0" Orientation="Horizontal">
+                <Label FontSize="24" Content="Оценить ресторан:" Style="{StaticResource MaterialDesignLabel}" />
+                <ComboBox  Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Margin="20 0 20 0" ItemsSource="{Binding List_of_rates}" Width="50" Height="40"  materialDesign:HintAssist.HelperText="Оценка" SelectedIndex="{Binding Selected_index}"  IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Selected_rate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Style="{StaticResource MaterialDesignRaisedLightButton}" VerticalAlignment="Top" Command="{Binding restaurantRating}" Margin="0 5 0 0" Height="30" Width="60" Cursor="Hand">
+                    <materialDesign:PackIcon Kind="Check"></materialDesign:PackIcon>
                 </Button>
             </StackPanel>
         </StackPanel>

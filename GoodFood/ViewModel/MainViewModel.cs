@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm;
+using GoodFood.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,20 +10,8 @@ namespace GoodFood.ViewModel
 {
     class MainViewModel:ViewModelBase
     {
-		private ViewModelBase selectedViewModel = new AddRestaurantViewModel();
-		private bool is_admin;
-		public bool Is_admin 
-		{
-			get 
-			{
-				return is_admin;
-			}
-			set 
-			{
-				is_admin = value;
-				RaisePropertyChanged("Is_admin");
-			}
-		}
+		private ViewModelBase selectedViewModel;
+		public User User { get; set; }
 		public ViewModelBase SelectedViewModel
 		{
 			get 
@@ -49,19 +38,59 @@ namespace GoodFood.ViewModel
 				RaisePropertiesChanged("Visibility");
 			}
 		}
+		private Visibility buttonOpenMenuVisibility = Visibility.Visible;
+		private Visibility buttonCloseMenuVisibility = Visibility.Collapsed;
 
+		public Visibility ButtonOpenMenuVisibility
+		{
+			get
+			{
+				return buttonOpenMenuVisibility;
+			}
+			set
+			{
+				buttonOpenMenuVisibility = value;
+				RaisePropertyChanged("ButtonOpenMenuVisibility");
+			}
+		}
+		public Visibility ButtonCloseMenuVisibility
+		{
+			get
+			{
+				return buttonCloseMenuVisibility;
+			}
+			set
+			{
+				buttonCloseMenuVisibility = value;
+				RaisePropertyChanged("ButtonCloseMenuVisibility");
+			}
+		}
+		public ICommand buttonCloseMenu => new DelegateCommand(ButtonCloseMenu);
+		public void ButtonCloseMenu()
+		{
+			ButtonOpenMenuVisibility = Visibility.Visible;
+			ButtonCloseMenuVisibility = Visibility.Collapsed;
+		}
+
+		public ICommand buttonOpenMenu => new DelegateCommand(ButtonOpenMenu);
+		public void ButtonOpenMenu()
+		{
+			ButtonOpenMenuVisibility = Visibility.Collapsed;
+			ButtonCloseMenuVisibility = Visibility.Visible;
+		}
 		public ICommand<object> updateViewModel => new DelegateCommand<object>(UpdateViewModel);
 		private void UpdateViewModel(object param) 
 		{
 			if (param.ToString() == "AddRestaurant")
-				SelectedViewModel = new AddRestaurantViewModel();
+				SelectedViewModel = new AddRestaurantViewModel(this);
 			else if (param.ToString() == "AllRestaurants")
 				SelectedViewModel = new AllRestaurantsViewModel(this);
 		}
-		public MainViewModel(bool is_admin) 
+		public MainViewModel(User user) 
 		{
-			Is_admin = is_admin;
-			if (!Is_admin) 
+			User = user;
+			SelectedViewModel = new AddRestaurantViewModel(this);
+			if (!User.Is_admin) 
 			{
 				Visibility = Visibility.Collapsed;
 			}

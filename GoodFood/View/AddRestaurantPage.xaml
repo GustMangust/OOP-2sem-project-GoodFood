@@ -12,7 +12,7 @@
          TextOptions.TextRenderingMode="Auto"
          FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"  >
+      d:DesignHeight="768" d:DesignWidth="1024"  >
     <UserControl.Resources>
         <Style x:Key="textBox" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="materialDesign:ValidationAssist.OnlyShowOnFocus" Value="True" />
@@ -23,22 +23,24 @@
             <Setter Property="FontSize" Value="20" />
             <Setter Property="Padding" Value="0,0,0,0" />
             <Setter Property="materialDesign:ThemeAssist.Theme" Value="Light" />
-            <Setter Property="Margin" Value="0,60,0,0" />
+            <Setter Property="Margin" Value="0,40,0,0" />
+            <Setter  Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#c33124" />
+            <Setter  Property="materialDesign:HintAssist.FontFamily" Value="Roboto" />
         </Style>
     </UserControl.Resources>
-    <Grid Background="Transparent">
+    <Grid Background="White">
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.44*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="0,70,0,0" >
-            <TextBox Text="{Binding Name,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0" Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Name" Cursor="IBeam"/>
-            <TextBox materialDesign:HintAssist.Hint="Type of cuisine" Style="{StaticResource textBox}"  Text="{Binding Type_of_cuisine,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Cursor="IBeam" />
-            <TextBox Text="{Binding Number_of_tables,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Amount of tables" Cursor="IBeam"/>
-            <StackPanel Orientation="Horizontal"  Margin="0,60,0,0" HorizontalAlignment="Center">
-                <Label Style="{StaticResource MaterialDesignLabel}" VerticalAlignment="Center" FontSize="20" Content="Working hours:" HorizontalAlignment="Center" Margin="0,0,155,0"/>
-                <TextBox Text="{Binding Start_time,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignTextBox}" ToolTip="{Binding ErrorCollection[Start_time]}" FontSize="20" VerticalAlignment="Center" Margin="10,0,10,0" Width="30" materialDesign:HintAssist.Hint="00" Cursor="IBeam">
+        <StackPanel Margin="60,160,0,0" >
+            <TextBox Text="{Binding Name,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0" Style="{StaticResource textBox}"  materialDesign:HintAssist.Hint="Название" Cursor="IBeam"/>
+            <TextBox materialDesign:HintAssist.Hint="Вид кухни" Style="{StaticResource textBox}"  Text="{Binding Type_of_cuisine,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Cursor="IBeam" />
+            <TextBox Text="{Binding Number_of_tables,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource textBox}" materialDesign:HintAssist.Hint="Количество столиков" Cursor="IBeam"/>
+            <StackPanel Orientation="Horizontal"  Margin="0,30,0,0" HorizontalAlignment="Center">
+                <Label Style="{StaticResource MaterialDesignLabel}" VerticalAlignment="Center" FontSize="20" Content="Время работы:" FontFamily="Roboto"  Foreground="#3B0F0B" HorizontalAlignment="Center" Margin="0,0,155,0"/>
+                <TextBox Text="{Binding Start_time,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignTextBox}" ToolTip="{Binding ErrorCollection[Start_time]}" FontSize="20" VerticalAlignment="Center" Margin="15,0,5,0" Width="30" materialDesign:HintAssist.Hint="00" Cursor="IBeam">
                     <Validation.ErrorTemplate>
                         <ControlTemplate />
                     </Validation.ErrorTemplate>
@@ -49,7 +51,7 @@
                     </TextBox.Resources>
                 </TextBox>
                 <Label FontSize="40" Content="-"/>
-                <TextBox Text="{Binding End_time,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignTextBox}" ToolTip="{Binding ErrorCollection[End_time]}" FontSize="20" VerticalAlignment="Center" Margin="10,0,0,0" Width="30" materialDesign:HintAssist.Hint="23" Cursor="IBeam">
+                <TextBox Text="{Binding End_time,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignTextBox}" ToolTip="{Binding ErrorCollection[End_time]}" FontSize="20" VerticalAlignment="Center" Margin="5,0,0,0" Width="30" materialDesign:HintAssist.Hint="23" Cursor="IBeam">
                     <Validation.ErrorTemplate>
                         <ControlTemplate />
                     </Validation.ErrorTemplate>
@@ -60,15 +62,15 @@
                     </TextBox.Resources>
                 </TextBox>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,50,0,0" >
-                <Button Command="{Binding addImage}" Width="70" Height="50" Margin="0,0,100,0" Style="{StaticResource MaterialDesignRaisedLightButton}" Cursor="Hand" >
-                    <materialDesign:PackIcon Kind="ImageAdd" Width="30" Height="30"></materialDesign:PackIcon>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,50,0,0" Cursor="Hand" >
+                <Button Command="{Binding addImage}" Width="70" Height="50" Margin="0,0,100,0" Style="{StaticResource MaterialDesignRaisedLightButton}" Background="#f98365" Cursor="Hand" >
+                    <materialDesign:PackIcon Kind="ImageAdd" Width="30" Height="30" Foreground="#3B0F0B"/>
                 </Button>
-                <Button Command="{Binding addRestaurant}" Width="70" Height="50" Margin="0,0,0,0" Style="{StaticResource MaterialDesignRaisedLightButton}" Cursor="Hand" >
-                    <materialDesign:PackIcon Kind="Add" Width="30" Height="30"></materialDesign:PackIcon>
+                <Button Command="{Binding addRestaurant}" Width="70" Height="50" Margin="0,0,0,0" Style="{StaticResource MaterialDesignRaisedLightButton}" Background="#e8a628" Cursor="Hand" >
+                    <materialDesign:PackIcon Foreground="#3B0F0B" Kind="Add" Width="30" Height="30"></materialDesign:PackIcon>
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Image Stretch="Fill" Source="{Binding ImageSource, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="0,155,0,0" VerticalAlignment="Top" Grid.Column="1" Width="150" Height="150"/>
+        <Image Stretch="Fill" Source="{Binding ImageSource, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,165,0,0" VerticalAlignment="Top" Grid.Column="1" Width="200" Height="170"/>
     </Grid>
 </UserControl>

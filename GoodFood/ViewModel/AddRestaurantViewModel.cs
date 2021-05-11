@@ -14,6 +14,7 @@ namespace GoodFood.ViewModel
 {
     class AddRestaurantViewModel:ViewModelBase, IDataErrorInfo
     {
+        public MainViewModel Vm { get; set; }
         public string Error { get { return null; } }
         public Dictionary<string, string> ErrorCollection { get; private set; } = new Dictionary<string, string>();
         public string this[string name]
@@ -190,19 +191,21 @@ namespace GoodFood.ViewModel
                 Image = new Picture(ImageConverter.ConvertToBitmap(ImageSource as BitmapImage));
                 int start;
                 int end;
-                if (Start_time.Length == 1)
-                    start = Convert.ToInt32(Start_time.Trim('0'));
+                if (Start_time[0] == '0')
+                    start = Convert.ToInt32(Start_time.Substring(1, 1));
                 else start = Convert.ToInt32(Start_time);
 
-                if (End_time.Length == 1)
-                    end = Convert.ToInt32(End_time.Trim('0'));
+                if (End_time[0] == '0')
+                    end = Convert.ToInt32(End_time.Substring(1,1));
                 else end = Convert.ToInt32(End_time);
                 DB.AddRestaurant(Name, Convert.ToInt32(Number_of_tables),start , end, Image.PictureString, Type_of_cuisine);
+                Vm.SelectedViewModel = new AllRestaurantsViewModel(Vm);
             }
         }
 
-        public AddRestaurantViewModel() 
+        public AddRestaurantViewModel(MainViewModel vm) 
         {
+            Vm = vm;
         }
     }
 }

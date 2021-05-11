@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoodFood.View" xmlns:materialdesign="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AdminMainPage" Height="628" Width="1024" ResizeMode="NoResize">
+        Title="GoodFood" Height="768" Width="1024" ResizeMode="NoResize">
     <Window.Resources>
         <Style TargetType="Button" x:Key="menuButton" BasedOn="{StaticResource MaterialDesignFlatLightBgButton}">
             <Setter Property="Margin" Value="15,15,15,0"/>
@@ -13,46 +13,55 @@
             <Setter Property="Width" Value="140"/>
             <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="10"/>
         </Style>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="80"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="80"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid Background="#e3edfc">
+        <ContentControl Content="{Binding SelectedViewModel}" HorizontalAlignment="Right" Width="1024"></ContentControl>
+        <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#f98365" Panel.ZIndex="100">
+            <StackPanel x:Name="MenuControlPanel">
+                <Grid Height="60" Background="#f98365" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonCloseMenu" Command="{Binding buttonCloseMenu}" Visibility="{Binding ButtonCloseMenuVisibility, Mode=TwoWay, TargetNullValue=Collapsed}" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Cursor="Hand">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="White" Width="35" Height="35"></materialDesign:PackIcon>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Command="{Binding buttonOpenMenu}" Visibility="{Binding ButtonOpenMenuVisibility, Mode=TwoWay, TargetNullValue=Visible}" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right">
+                        <materialDesign:PackIcon Kind="Menu" Foreground="White" Width="35" Height="35"></materialDesign:PackIcon>
+                    </Button>
+                </Grid>
+                <StackPanel x:Name="MenuButtons" Margin="8 0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Orientation="Vertical" >
+                    <Button x:Name="HomeButton" Command="{Binding updateViewModel, Mode=OneTime}" CommandParameter="AllRestaurants" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Home" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 10 0"></materialDesign:PackIcon>
+                            <TextBlock Text="Главная" VerticalAlignment="Center" Margin="10 10" FontSize="20"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Height="60" x:Name="CreateAdButton" Visibility="{Binding Visibility}" Command="{Binding updateViewModel, Mode=OneTime}" CommandParameter="AddRestaurant" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Kind="Add" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 10 0"></materialDesign:PackIcon>
+                            <TextBlock Text="Добавить" VerticalAlignment="Center" Margin="10 10" FontSize="20"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.Column="1"></ContentControl>
-        <StackPanel Margin="0 55 0 0">
-            <Button Style="{StaticResource menuButton}" Command="{Binding updateViewModel}" CommandParameter="AllRestaurants" Cursor="Hand">
-                <Grid Width="140">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="37"/>
-                        <ColumnDefinition Width="22.53"/>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="ClipboardListOutline" Width="30" Height="30" HorizontalAlignment="Center"/>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="16" Margin="5,4,0,0"  FontWeight="SemiBold" Grid.ColumnSpan="2">Список</TextBlock>
-                </Grid>
-            </Button>
-            <Button Style="{StaticResource menuButton}" Visibility="{Binding Visibility}"  Command="{Binding updateViewModel}" CommandParameter="AddRestaurant" Cursor="Hand">
-                <Grid Width="140">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Grid.Column="0" Kind="Add" Width="30" Height="30"  VerticalAlignment="Center"/>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="5 0 0 0"  TextWrapping="Wrap" FontSize="16" FontWeight="SemiBold">Добавить</TextBlock>
-                </Grid>
-            </Button>
-            <Button Style="{StaticResource menuButton}" Command="{Binding updateViewModel}" CommandParameter="AddRestaurant" Cursor="Hand">
-                <Grid Width="140">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Grid.Column="0" Kind="Add" Width="30" Height="30"  VerticalAlignment="Center"/>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="5 0 0 0"  TextWrapping="Wrap" FontSize="16" FontWeight="SemiBold">Добави</TextBlock>
-                </Grid>
-            </Button>
-        </StackPanel>
     </Grid>
 </Window>

@@ -49,19 +49,5 @@ namespace GoodFood.Model
                 source = bmpReturn;
             }
         }
-        // Set PictureByteArray Property 
-        // to be an attribute of the Picture node 
-        public byte[] PictureByteArray
-        {
-            get
-            {
-                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
-                return (byte[])converter.ConvertTo(source, typeof(byte[]));
-            }
-            set
-            {
-                source = new Bitmap(new MemoryStream(value));
-            }
-        }
     }
 }

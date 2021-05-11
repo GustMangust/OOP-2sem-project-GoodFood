@@ -12,7 +12,7 @@
          TextOptions.TextRenderingMode="Auto"
          FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800">
+      d:DesignHeight="600" d:DesignWidth="800" Cursor="IBeam">
     <Grid Background="#e3edfc">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <StackPanel Margin="0,20,40,20" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Label Margin="0,0,15,0" VerticalAlignment="Center" FontSize="20">Выберите время:</Label>
-            <TextBox Width="40" Margin="0,0,80,0" Style="{StaticResource MaterialDesignTextBox}" HorizontalContentAlignment="Center" FontSize="20" materialDesign:HintAssist.Hint="00" VerticalAlignment="Center"  Text="{Binding Time,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding ErrorCollection[Time]}" Cursor="IBeam">
+            <TextBox Width="40" Margin="0,0,80,0" Style="{StaticResource MaterialDesignTextBox}" HorizontalContentAlignment="Center" FontSize="20" materialDesign:HintAssist.Hint="00" VerticalAlignment="Center"  Text="{Binding Time,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding ErrorCollection[Time]}" Cursor="Hand">
                 <Validation.ErrorTemplate>
                     <ControlTemplate />
                 </Validation.ErrorTemplate>

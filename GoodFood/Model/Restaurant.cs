@@ -17,8 +17,6 @@ namespace GoodFood.Model
         public int Start_time { get; set; }
         public int End_time { get; set; }
         public string Type_of_cuisine { get; set; }
-        [NotMapped]
-        public byte[] Restaurant_Byte_Image { get; set; }
         public string Restaurant_String_Image { get; set; }
         [NotMapped]
         public Picture Restaurant_Picture { get; set; }
@@ -26,9 +24,7 @@ namespace GoodFood.Model
         public Decimal Rating{ get; set; }
         [NotMapped]
         public ImageSource Restaurant_ImageSource { get; set; }
-        public Restaurant() 
-        {
-        }
+        public Restaurant() { }
         public Restaurant(int id,string name,int num,int start,int end,string im,string type) 
         {
             Rest_ID = id;

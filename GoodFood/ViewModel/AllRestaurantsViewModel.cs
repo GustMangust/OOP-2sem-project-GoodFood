@@ -101,16 +101,21 @@ namespace GoodFood.ViewModel
             set 
             { 
                 time = value;
+                int time_changed=0;
                 Restaurants = BufferRestaurants;
-                foreach (var rest in Restaurants)
+                SortedRestaurants = new ObservableCollection<Restaurant>();
+                if (time.Length == 2 && Char.IsDigit(time[0]) && Char.IsDigit(time[1])) 
                 {
-                    if(value!=null && value !="")
-                        if (Convert.ToInt32(value.Trim('0')) >=rest.Start_time && Convert.ToInt32(value.Trim('0')) <=rest.End_time)
-                        {
-                            SortedRestaurants.Add(rest);
-                        }
+                    if (time[0] == '0')
+                        time_changed = Convert.ToInt32(time[1]);
+                    else time_changed = Convert.ToInt32(time);
+                    foreach (var rest in Restaurants)
+                    {
+                        if(rest.End_time-rest.Start_time>0 && time_changed>= rest.Start_time && time_changed<= rest.End_time)
+                        SortedRestaurants.Add(rest);
+                    }
+                    Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
                 }
-                Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
                 RaisePropertyChanged("Time");
             }
         }
