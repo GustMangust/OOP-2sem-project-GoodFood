@@ -112,7 +112,9 @@ namespace GoodFood.ViewModel
                     foreach (var rest in Restaurants)
                     {
                         if(rest.End_time-rest.Start_time>0 && time_changed>= rest.Start_time && time_changed<= rest.End_time)
-                        SortedRestaurants.Add(rest);
+                            SortedRestaurants.Add(rest);
+                        if (rest.End_time - rest.Start_time < 0 && ((time_changed >= rest.Start_time && time_changed<=0)|| (time_changed >= 0 && time_changed <= rest.End_time)))
+                            SortedRestaurants.Add(rest);
                     }
                     Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
                 }

@@ -12,15 +12,15 @@
          TextOptions.TextRenderingMode="Auto"
          FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800" Cursor="IBeam">
-    <Grid Background="#e3edfc">
+      d:DesignHeight="768" d:DesignWidth="1024">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Margin="0,20,40,20" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Label Margin="0,0,15,0" VerticalAlignment="Center" FontSize="20">Выберите время:</Label>
-            <TextBox Width="40" Margin="0,0,80,0" Style="{StaticResource MaterialDesignTextBox}" HorizontalContentAlignment="Center" FontSize="20" materialDesign:HintAssist.Hint="00" VerticalAlignment="Center"  Text="{Binding Time,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding ErrorCollection[Time]}" Cursor="Hand">
+            <Label FontFamily="Roboto"  Foreground="#3B0F0B" Margin="0,0,15,0" VerticalAlignment="Center" FontSize="20">Выберите время:</Label>
+            <TextBox Width="40" Margin="0,0,80,0" Style="{StaticResource MaterialDesignTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#c33124"  materialDesign:HintAssist.FontFamily="Roboto" HorizontalContentAlignment="Center" FontSize="20" materialDesign:HintAssist.Hint="00" VerticalAlignment="Center"  Text="{Binding Time,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding ErrorCollection[Time]}">
                 <Validation.ErrorTemplate>
                     <ControlTemplate />
                 </Validation.ErrorTemplate>
@@ -30,10 +30,10 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <Label Margin="0,0,15,0" VerticalAlignment="Center" FontSize="20">Вид кухни:</Label>
-            <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"  ItemsSource="{Binding Types_of_cuisine}" Width="200" Height="40" HorizontalAlignment="Right" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SortByTypes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Label FontFamily="Roboto" Foreground="#3B0F0B" Margin="0,0,15,0" VerticalAlignment="Center" FontSize="20">Вид кухни:</Label>
+            <ComboBox FontFamily="Roboto"  materialDesign:TextFieldAssist.UnderlineBrush="#c33124"  materialDesign:HintAssist.FontFamily="Roboto"  Foreground="#3B0F0B" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  ItemsSource="{Binding Types_of_cuisine}" Width="200" Height="40" HorizontalAlignment="Right" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SortByTypes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         </StackPanel>
-        <ListBox ScrollViewer.VerticalScrollBarVisibility ="Hidden"  Grid.Row="1" ItemsSource="{Binding Restaurants}" SelectedItem="{Binding SelectedRestaurant}">
+        <ListBox ScrollViewer.VerticalScrollBarVisibility ="Hidden" Margin="30 0 0 0" Grid.Row="1" ItemsSource="{Binding Restaurants}" SelectedItem="{Binding SelectedRestaurant}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"/>
@@ -41,25 +41,16 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <DockPanel Width="260" Height="270">
-                        <Image DockPanel.Dock="Top"  Width="257" Height="127" Stretch="Fill" Source="{Binding Path=Restaurant_ImageSource}"/>
-                        <StackPanel Margin="0,25,0,0">
-                            <StackPanel Orientation="Horizontal">
-                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}" Content="Ресторан "/>
-                                <Label FontFamily="{StaticResource MaterialDesignFont}" Margin="0 0 -7 0">"</Label>
-                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}">
-                                    <Label.Content>
-                                        <Binding StringFormat="{} -  \&quot;{0}\&quot;" Path="Name"/>
-                                    </Label.Content>
-                                </Label>
-                                <Label Margin="-7 0 0 0">"</Label>
-                            </StackPanel>
-                            <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}" Margin="0,0,0,0" Content="{Binding Path=Type_of_cuisine}"/>
+                    <DockPanel Width="285" Height="335">
+                        <Image DockPanel.Dock="Top"  Width="280" Height="190" Stretch="Fill" Source="{Binding Path=Restaurant_ImageSource}"/>
+                        <StackPanel Margin="0,20,0,0">
+                            <Label  Style="{StaticResource MaterialDesignLabel}" FontSize="20" FontWeight="Normal" FontFamily="Roboto"  Foreground="#3B0F0B" Content="{Binding Path=Name}"/>
+                            <Label Style="{StaticResource MaterialDesignLabel}" FontFamily="Roboto"  Foreground="#3B0F0B" Content="{Binding Path=Type_of_cuisine}"/>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="Время работы: "/>
-                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="{Binding Path=Start_time}"/>
-                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="-"/>
-                                <Label FontFamily="{StaticResource MaterialDesignFont}" Style="{StaticResource MaterialDesignLabel}"  Content="{Binding Path=End_time}"/>
+                                <Label  Style="{StaticResource MaterialDesignLabel}" FontFamily="Roboto"  Foreground="#3B0F0B" Content="Время работы: "/>
+                                <Label  Style="{StaticResource MaterialDesignLabel}" FontFamily="Roboto"  Foreground="#3B0F0B" Content="{Binding Path=Start_time}"/>
+                                <Label  Style="{StaticResource MaterialDesignLabel}" FontFamily="Roboto"  Foreground="#3B0F0B" Content="-"/>
+                                <Label  Style="{StaticResource MaterialDesignLabel}" FontFamily="Roboto"  Foreground="#3B0F0B" Content="{Binding Path=End_time}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <materialDesign:PackIcon Kind="Star" VerticalAlignment="Center"/>

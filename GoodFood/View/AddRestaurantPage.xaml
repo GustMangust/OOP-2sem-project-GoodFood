@@ -66,7 +66,7 @@
                 <Button Command="{Binding addImage}" Width="70" Height="50" Margin="0,0,100,0" Style="{StaticResource MaterialDesignRaisedLightButton}" Background="#f98365" Cursor="Hand" >
                     <materialDesign:PackIcon Kind="ImageAdd" Width="30" Height="30" Foreground="#3B0F0B"/>
                 </Button>
-                <Button Command="{Binding addRestaurant}" Width="70" Height="50" Margin="0,0,0,0" Style="{StaticResource MaterialDesignRaisedLightButton}" Background="#e8a628" Cursor="Hand" >
+                <Button Command="{Binding addRestaurant}" Width="70" Height="50" Style="{StaticResource MaterialDesignRaisedLightButton}" Background="#e8a628" Cursor="Hand" >
                     <materialDesign:PackIcon Foreground="#3B0F0B" Kind="Add" Width="30" Height="30"></materialDesign:PackIcon>
                 </Button>
             </StackPanel>

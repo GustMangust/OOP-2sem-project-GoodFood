@@ -34,8 +34,8 @@
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid Background="#e3edfc">
-        <ContentControl Content="{Binding SelectedViewModel}" HorizontalAlignment="Right" Width="1024"></ContentControl>
+    <Grid>
+        <ContentControl  Content="{Binding SelectedViewModel}" Margin="80 0 0 0" HorizontalAlignment="Right" Width="944"/>
         <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#f98365" Panel.ZIndex="100">
             <StackPanel x:Name="MenuControlPanel">
                 <Grid Height="60" Background="#f98365" HorizontalAlignment="Center">

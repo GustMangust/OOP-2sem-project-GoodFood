@@ -207,19 +207,22 @@ namespace GoodFood.ViewModel
         public ICommand restaurantRating => new DelegateCommand(RestaurantRating);
         private void RestaurantRating() 
         {
-            List<Rating> list = new List<Rating>( DB.GetRatings());
-            foreach(Rating rating in list) 
+            if(Selected_rate!=null && Selected_rate != "") 
             {
-                if(rating.User_ID == SelectedUser.User_ID && rating.Rest_ID == SelectedRestaurant.Rest_ID) 
+                List<Rating> list = new List<Rating>( DB.GetRatings());
+                foreach(Rating rating in list) 
                 {
-                    rating.Rate = Convert.ToInt32(Selected_rate);
-                    DB.EditRating(rating);
-                    MessageBox.Show("Обновлено!");
-                    return;
+                    if(rating.User_ID == SelectedUser.User_ID && rating.Rest_ID == SelectedRestaurant.Rest_ID) 
+                    {
+                        rating.Rate = Convert.ToInt32(Selected_rate);
+                        DB.EditRating(rating);
+                        MessageBox.Show("Обновлено!");
+                        return;
+                    }
                 }
+                DB.AddRating(SelectedRestaurant.Rest_ID, SelectedUser.User_ID, Convert.ToInt32(Selected_rate));
+                MessageBox.Show("Оценка добавлена!");
             }
-            DB.AddRating(SelectedRestaurant.Rest_ID, SelectedUser.User_ID, Convert.ToInt32(Selected_rate));
-            MessageBox.Show("Оценка добавлена!");
         }
         public RestaurantPageViewModel(MainViewModel mvm, AllRestaurantsViewModel arvm) 
         {

@@ -175,15 +175,10 @@ namespace GoodFood.ViewModel
             };
             if (dialog.ShowDialog() == true)
             {
-                if(ImageSource == null)
-                {
-                    ImageSource = new BitmapImage(new Uri(dialog.FileName));
-                }
+                ImageSource = new BitmapImage(new Uri(dialog.FileName));
             }
         }
         public ICommand addRestaurant => new DelegateCommand(AddRestaurant);
-
-
         private void AddRestaurant() 
         {
             if (Validation.IsRestaurantNameValid(Name) && Start_time!=End_time && Validation.IsTimeValid(Start_time) && Validation.IsTimeValid(End_time) && Validation.IsRestaurantNameValid(Type_of_cuisine) && Validation.IsNumberOfTablesValid(Number_of_tables) && ImageSource != null) 
