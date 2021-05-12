@@ -31,21 +31,21 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="60 70 0 0" >
-            <Image Source="{Binding Image}" Width="350" Height="250"/>
+            <Image Source="{Binding Image}" Stretch="Fill" Width="350" Height="250"/>
             <StackPanel Margin="70 0 0 0" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <Label FontSize="22" FontFamily="Roboto"  Foreground="#6B1B14" Content="Ресторан:" Style="{StaticResource MaterialDesignLabel}"/>
-                    <Label FontSize="25" FontFamily="Roboto"  Foreground="#3B0F0B" FontStyle="Italic" Margin="10 0 0 0" Content="{Binding Name}" Style="{StaticResource MaterialDesignLabel}"/>
+                    <Label FontSize="20" FontFamily="Roboto" VerticalAlignment="Center" Foreground="#6B1B14" Content="Ресторан:" Style="{StaticResource MaterialDesignLabel}"/>
+                    <Label FontSize="25" FontFamily="Roboto" VerticalAlignment="Center" Foreground="#3B0F0B" FontStyle="Italic" Margin="10 0 0 0" Content="{Binding Name}" Style="{StaticResource MaterialDesignLabel}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
-                    <Label FontSize="22" FontFamily="Roboto"  Foreground="#6B1B14" Content="Вид кухни:" Style="{StaticResource MaterialDesignLabel}"/>
-                    <Label FontSize="25" FontFamily="Roboto"  Foreground="#3B0F0B" Margin="10 0 0 0" FontStyle="Italic" Content="{Binding Type_of_cuisine}" Style="{StaticResource MaterialDesignLabel}"/>
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 10" >
+                    <Label FontSize="20" FontFamily="Roboto" VerticalAlignment="Center"  Foreground="#6B1B14" Content="Вид кухни:" Style="{StaticResource MaterialDesignLabel}"/>
+                    <Label FontSize="25" FontFamily="Roboto" VerticalAlignment="Center" Foreground="#3B0F0B" Margin="10 0 0 0" FontStyle="Italic" Content="{Binding Type_of_cuisine}" Style="{StaticResource MaterialDesignLabel}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label FontSize="22" FontFamily="Roboto"  Foreground="#6B1B14" Content="Время работы:" Style="{StaticResource MaterialDesignLabel}"/>
-                    <Label FontSize="25" FontFamily="Roboto"  Foreground="#3B0F0B" Margin="10 0 5 0" FontStyle="Italic" Content="{Binding Start_time}" Style="{StaticResource MaterialDesignLabel}"/>
-                    <Label FontSize="25" FontWeight="Bold" Content="-" Style="{StaticResource MaterialDesignLabel}"/>
-                    <Label FontSize="25" FontFamily="Roboto"  Foreground="#3B0F0B" Margin="5 0 0 0"  FontStyle="Italic" Content="{Binding End_time}" Style="{StaticResource MaterialDesignLabel}"/>
+                    <Label FontSize="20" FontFamily="Roboto" VerticalAlignment="Center" Foreground="#6B1B14" Content="Время работы:" Style="{StaticResource MaterialDesignLabel}"/>
+                    <Label FontSize="25" FontFamily="Roboto" VerticalAlignment="Center" Foreground="#3B0F0B" Margin="10 0 5 0" FontStyle="Italic" Content="{Binding Start_time}" Style="{StaticResource MaterialDesignLabel}"/>
+                    <Label FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Content="-" Style="{StaticResource MaterialDesignLabel}"/>
+                    <Label FontSize="25" FontFamily="Roboto"  VerticalAlignment="Center" Foreground="#3B0F0B" Margin="5 0 0 0"  FontStyle="Italic" Content="{Binding End_time}" Style="{StaticResource MaterialDesignLabel}"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

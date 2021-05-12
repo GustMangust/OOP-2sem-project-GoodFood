@@ -151,7 +151,8 @@ namespace GoodFood.ViewModel
         public ICommand loadRestaurantPage => new DelegateCommand(LoadRestaurantPage);
         private void LoadRestaurantPage() 
         {
-            viewmodel.SelectedViewModel = new RestaurantPageViewModel(viewmodel,this);
+            if(!viewmodel.User.Is_admin)
+                viewmodel.SelectedViewModel = new RestaurantPageViewModel(viewmodel,this);
 
         }
         public AllRestaurantsViewModel(MainViewModel vm)
