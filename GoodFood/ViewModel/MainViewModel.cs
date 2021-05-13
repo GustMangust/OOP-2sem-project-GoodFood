@@ -89,7 +89,7 @@ namespace GoodFood.ViewModel
 		public MainViewModel(User user) 
 		{
 			User = user;
-			SelectedViewModel = new AddRestaurantViewModel(this);
+			SelectedViewModel = new AllRestaurantsViewModel(this);
 			if (!User.Is_admin) 
 			{
 				Visibility = Visibility.Collapsed;

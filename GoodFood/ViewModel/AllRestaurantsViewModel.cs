@@ -107,7 +107,7 @@ namespace GoodFood.ViewModel
                 if (time.Length == 2 && Char.IsDigit(time[0]) && Char.IsDigit(time[1])) 
                 {
                     if (time[0] == '0')
-                        time_changed = Convert.ToInt32(time[1]);
+                        time_changed = Convert.ToInt32(time.Substring(1,1));
                     else time_changed = Convert.ToInt32(time);
                     foreach (var rest in Restaurants)
                     {

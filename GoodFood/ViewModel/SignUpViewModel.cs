@@ -103,7 +103,7 @@ namespace GoodFood.ViewModel
                 BindingList<User> users = DB.GetUsers();
                 foreach (User user in users)
                 {
-                    if (user.Password == Encryption.Encrypt(Password))
+                    if (user.Email == Email)
                     {
                         Visibility = Visibility.Visible;
                         return;

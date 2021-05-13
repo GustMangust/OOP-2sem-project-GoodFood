@@ -197,7 +197,6 @@ namespace GoodFood.ViewModel
                 Vm.SelectedViewModel = new AllRestaurantsViewModel(Vm);
             }
         }
-
         public AddRestaurantViewModel(MainViewModel vm) 
         {
             Vm = vm;
