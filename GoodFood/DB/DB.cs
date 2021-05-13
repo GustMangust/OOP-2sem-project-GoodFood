@@ -11,8 +11,8 @@ namespace GoodFood
 {
     public static class DB
     {
-        private static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        //private static string connectionString = ConfigurationManager.ConnectionStrings["LocalConnection"].ConnectionString;
+        //private static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private static string connectionString = ConfigurationManager.ConnectionStrings["LocalConnection"].ConnectionString;
         private static DbContextOptionsBuilder<RestaurantContext> optionsBuilderRestaurant = new DbContextOptionsBuilder<RestaurantContext>();
         private static DbContextOptions<RestaurantContext> optionsRestaurant = optionsBuilderRestaurant.UseSqlServer(connectionString).Options;
         private static DbContextOptionsBuilder<UserContext> optionsBuilderUser = new DbContextOptionsBuilder<UserContext>();
