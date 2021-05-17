@@ -211,13 +211,13 @@ namespace GoodFood.ViewModel {
             List_of_time.Add(i + ":00");
         }
       } else {
-        for(int i = 0; i < SelectedRestaurant.End_time; i++) {
+        for(int i = SelectedRestaurant.Start_time; i < 24; i++) {
           if(i.ToString().Length == 1) {
             List_of_time.Add("0" + i + ":00");
           } else
             List_of_time.Add(i + ":00");
         }
-        for(int i = SelectedRestaurant.Start_time; i < 24; i++) {
+        for(int i = 0; i < SelectedRestaurant.End_time; i++) {
           if(i.ToString().Length == 1) {
             List_of_time.Add("0" + i + ":00");
           } else
