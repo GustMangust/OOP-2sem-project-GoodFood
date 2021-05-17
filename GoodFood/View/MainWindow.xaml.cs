@@ -1,26 +1,12 @@
-﻿using GoodFood.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
-namespace GoodFood.View
-{
-    /// <summary>
-    /// Логика взаимодействия для AdminMainPage.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+namespace GoodFood.View {
+  /// <summary>
+  /// Логика взаимодействия для AdminMainPage.xaml
+  /// </summary>
+  public partial class MainWindow : Window {
+    public MainWindow() {
+      InitializeComponent();
     }
+  }
 }

@@ -22,6 +22,9 @@
     <Compile Update="View\SignUpPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\UserBookingsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\AddRestaurantPage.xaml">
@@ -40,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SignUpPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserBookingsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

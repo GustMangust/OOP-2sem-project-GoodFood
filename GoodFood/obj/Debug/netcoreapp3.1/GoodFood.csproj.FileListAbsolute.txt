@@ -154,3 +154,7 @@ D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\MainWindo
 D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\MainWindow.baml
 D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\RestaurantPage.g.cs
 D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\RestaurantPage.baml
+D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\UserBookingsPage.g.cs
+D:\Git\OOP-2sem-project-GoodFood\GoodFood\obj\Debug\netcoreapp3.1\View\UserBookingsPage.baml
+D:\Git\OOP-2sem-project-GoodFood\GoodFood\bin\Debug\netcoreapp3.1\Microsoft.Expression.Interactions.dll
+D:\Git\OOP-2sem-project-GoodFood\GoodFood\bin\Debug\netcoreapp3.1\System.Windows.Interactivity.dll

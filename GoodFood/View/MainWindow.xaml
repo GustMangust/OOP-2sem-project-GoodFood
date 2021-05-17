@@ -59,6 +59,12 @@
                             <TextBlock Text="Добавить" VerticalAlignment="Center" Margin="10 10" FontSize="20"></TextBlock>
                         </StackPanel>
                     </Button>
+                    <Button Height="60" Visibility="{Binding VisibilityUser}" Command="{Binding updateViewModel, Mode=OneTime}" CommandParameter="UserBookings" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Kind="ClipboardList" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 10 0"></materialDesign:PackIcon>
+                            <TextBlock Text="Мои заказы" VerticalAlignment="Center" Margin="10 10" FontSize="20"></TextBlock>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </Grid>
