@@ -38,7 +38,7 @@
         <ContentControl  Content="{Binding SelectedViewModel}" Margin="80 0 0 0" HorizontalAlignment="Right" Width="944"/>
         <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#f98365" Panel.ZIndex="100">
             <StackPanel x:Name="MenuControlPanel">
-                <Grid Height="60" Background="#f98365" HorizontalAlignment="Center">
+                <Grid Height="60" Background="#f98365" HorizontalAlignment="Left" Margin="10 0 0 0">
                     <Button x:Name="ButtonCloseMenu" Command="{Binding buttonCloseMenu}" Visibility="{Binding ButtonCloseMenuVisibility, Mode=TwoWay, TargetNullValue=Collapsed}" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Cursor="Hand">
                         <materialDesign:PackIcon Kind="ArrowLeft" Foreground="White" Width="35" Height="35"></materialDesign:PackIcon>
                     </Button>
@@ -47,22 +47,28 @@
                     </Button>
                 </Grid>
                 <StackPanel x:Name="MenuButtons" Margin="8 0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Orientation="Vertical" >
-                    <Button x:Name="HomeButton" Command="{Binding updateViewModel, Mode=OneTime}" CommandParameter="AllRestaurants" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                    <Button x:Name="HomeButton" Command="{Binding updateViewModel, Mode=OneTime}" CommandParameter="AllRestaurants" HorizontalAlignment="Left" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Home" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 10 0"></materialDesign:PackIcon>
+                            <materialDesign:PackIcon Kind="Home" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 0 0"></materialDesign:PackIcon>
                             <TextBlock Text="Главная" VerticalAlignment="Center" Margin="10 10" FontSize="20"></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Height="60" x:Name="CreateAdButton" Visibility="{Binding Visibility}" Command="{Binding updateViewModel, Mode=OneTime}" CommandParameter="AddRestaurant" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                    <Button Height="60" x:Name="CreateAdButton" Visibility="{Binding Visibility}" HorizontalAlignment="Left" Command="{Binding updateViewModel, Mode=OneTime}" CommandParameter="AddRestaurant" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
                         <StackPanel Orientation="Horizontal" >
-                            <materialDesign:PackIcon Kind="Add" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 10 0"></materialDesign:PackIcon>
+                            <materialDesign:PackIcon Kind="Add" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 0 0"></materialDesign:PackIcon>
                             <TextBlock Text="Добавить" VerticalAlignment="Center" Margin="10 10" FontSize="20"></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Height="60" Visibility="{Binding VisibilityUser}" Command="{Binding updateViewModel, Mode=OneTime}" CommandParameter="UserBookings" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                    <Button Height="60" Visibility="{Binding VisibilityUser}" Command="{Binding updateViewModel, Mode=OneTime}" HorizontalAlignment="Left" CommandParameter="UserBookings" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
                         <StackPanel Orientation="Horizontal" >
-                            <materialDesign:PackIcon Kind="ClipboardList" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 10 0"></materialDesign:PackIcon>
-                            <TextBlock Text="Мои заказы" VerticalAlignment="Center" Margin="10 10" FontSize="20"></TextBlock>
+                            <materialDesign:PackIcon Kind="ClipboardList" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 0 0"></materialDesign:PackIcon>
+                            <TextBlock Text="Заказы" VerticalAlignment="Center" Margin="10 10 15 10" FontSize="20"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Height="60" Visibility="{Binding Visibility}" Command="{Binding updateViewModel, Mode=OneTime}" HorizontalAlignment="Left" CommandParameter="AdminStatistics" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Kind="GoogleAnalytics" Width="35" Height="35" VerticalAlignment="Center" Margin="0 0 0 0"></materialDesign:PackIcon>
+                            <TextBlock Text="Статистика" VerticalAlignment="Center" Margin="10 10 15 10" FontSize="20"></TextBlock>
                         </StackPanel>
                     </Button>
                 </StackPanel>

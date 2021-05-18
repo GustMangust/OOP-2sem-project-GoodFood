@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 D:\Git\OOP-2sem-project-GoodFood\GoodFood\App.xaml
-7-2053221095
+8184541707
 
-301814326195
+32-1730128763
 220-1709804706
-View\AddRestaurantPage.xaml;View\AllRestaurantsPage.xaml;View\LogInPage.xaml;View\MainWindow.xaml;View\RestaurantPage.xaml;View\SignUpPage.xaml;View\UserBookingsPage.xaml;
+View\AddRestaurantPage.xaml;View\AdminStatisticsPage.xaml;View\AllRestaurantsPage.xaml;View\LogInPage.xaml;View\MainWindow.xaml;View\RestaurantPage.xaml;View\SignUpPage.xaml;View\UserBookingsPage.xaml;
 
-True
+False
 

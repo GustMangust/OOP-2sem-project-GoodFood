@@ -10,6 +10,9 @@
     <Compile Update="View\AddRestaurantPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AdminStatisticsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\AddRestaurantPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminStatisticsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainWindow.xaml">

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace GoodFood.ViewModel {
@@ -29,6 +30,7 @@ namespace GoodFood.ViewModel {
         return result;
       }
     }
+    public int SelectedIndex { get; }
     private ObservableCollection<Restaurant> restaurants;
     public ObservableCollection<Restaurant> Restaurants {
       get {
@@ -83,6 +85,7 @@ namespace GoodFood.ViewModel {
         Restaurants = BufferRestaurants;
         SortedRestaurants = new ObservableCollection<Restaurant>();
         if(time.Length == 2 && Char.IsDigit(time[0]) && Char.IsDigit(time[1])) {
+          SortByTypes = "Все рестораны";
           if(time[0] == '0')
             time_changed = Convert.ToInt32(time.Substring(1, 1));
           else
@@ -106,15 +109,19 @@ namespace GoodFood.ViewModel {
         return sortByTypes;
       }
       set {
+
         Restaurants = BufferRestaurants;
         sortByTypes = value;
-        foreach(var rest in Restaurants) {
-          if(rest.Type_of_cuisine == value.Substring(value.IndexOf(" ") + 1)) {
-            SortedRestaurants.Add(rest);
+        if(value!="Все рестораны") {
+          Time = "";
+          foreach(var rest in Restaurants) {
+            if(rest.Type_of_cuisine == value.Substring(value.IndexOf(" ") + 1)) {
+              SortedRestaurants.Add(rest);
+            }
           }
+          Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
+          SortedRestaurants.Clear();
         }
-        Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
-        SortedRestaurants.Clear();
         RaisePropertyChanged("SortByTypes");
       }
     }
@@ -132,7 +139,7 @@ namespace GoodFood.ViewModel {
       Restaurants = BufferRestaurants;
       Ratings = new ObservableCollection<Rating>(DB.GetRatings());
       Types_of_cuisine = new ObservableCollection<string>();
-
+      Types_of_cuisine.Add("Все рестораны");
       foreach(var rest in Restaurants) {
         int index = 0;
         int sum_of_rates = 0;
@@ -147,6 +154,7 @@ namespace GoodFood.ViewModel {
         Types_of_cuisine.Add(rest.Type_of_cuisine);
       }
       Types_of_cuisine = new ObservableCollection<string>(Types_of_cuisine.Distinct<string>());
+      SortByTypes = "Все рестораны";
     }
   }
 }

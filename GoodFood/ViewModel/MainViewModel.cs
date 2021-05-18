@@ -81,6 +81,9 @@ namespace GoodFood.ViewModel {
         case "UserBookings":
           SelectedViewModel = new UserBookingsViewModel(this);
           break;
+        case "AdminStatistics":
+          SelectedViewModel = new AdminStatisticsViewModel(this);
+          break;
       }
     }
     public MainViewModel(User user) {
