@@ -13,7 +13,7 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
            mc:Ignorable="d"
-        Title="GoodFood" Height="506" Width="450" ResizeMode="NoResize" >
+        Title="GoodFood" Height="506" Width="450" ResizeMode="NoResize"  >
     <Grid Background="white">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
