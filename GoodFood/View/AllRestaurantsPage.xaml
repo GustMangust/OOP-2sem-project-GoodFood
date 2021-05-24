@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <StackPanel Margin="0,20,40,20" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Label FontFamily="Roboto"  Foreground="#3B0F0B" Margin="0,0,15,0" VerticalAlignment="Center" FontSize="20">Выберите время:</Label>
-            <TextBox Width="40" Margin="0,0,80,0" Style="{StaticResource MaterialDesignTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#c33124"  materialDesign:HintAssist.FontFamily="Roboto" HorizontalContentAlignment="Center" FontSize="20" materialDesign:HintAssist.Hint="00" VerticalAlignment="Center"  Text="{Binding Time,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding ErrorCollection[Time]}">
+            <TextBox Width="40" Margin="0,0,80,0" Style="{StaticResource MaterialDesignTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#c33124"  materialDesign:HintAssist.FontFamily="Roboto" HorizontalContentAlignment="Center" FontSize="20" materialDesign:HintAssist.Hint="00" VerticalAlignment="Center"  Text="{Binding Time,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding ErrorCollection[Time]}" Cursor="IBeam">
                 <Validation.ErrorTemplate>
                     <ControlTemplate />
                 </Validation.ErrorTemplate>

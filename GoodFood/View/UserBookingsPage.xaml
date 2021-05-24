@@ -31,7 +31,7 @@
                     <Label Style="{StaticResource MaterialDesignLabel}" Content="Время" HorizontalAlignment="Left" FontSize="25" Margin="20 0 20 0" FontFamily="Roboto"/>
                     <Label Style="{StaticResource MaterialDesignLabel}" Content="Дата" HorizontalAlignment="Left" FontSize="25" Margin="20 0 0 0" FontFamily="Roboto"/>
                 </StackPanel>
-                <ListBox ScrollViewer.VerticalScrollBarVisibility ="Auto" Height="150" Margin="0 20 0 0"  Grid.Row="1" ItemsSource="{Binding CurrentBookings}" SelectedItem="{Binding SelectedBooking}">
+                <ListBox Visibility="{Binding NotEmptyVisibility}" ScrollViewer.VerticalScrollBarVisibility ="Auto" Height="150" Margin="0 20 0 0"  Grid.Row="1" ItemsSource="{Binding CurrentBookings}" SelectedItem="{Binding SelectedBooking}">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Vertical"/>

@@ -7,11 +7,7 @@ namespace GoodFood {
     public static bool IsEmailValid(string emailaddress) {
       try {
         MailAddress m = new MailAddress(emailaddress);
-        if(Regex.IsMatch(emailaddress, @"^[\w!#$%&'*+\-\/=?\^_`{|}~]+(\.[\w!#$%&'*+\-\/=?\^_`{|}~]+)*@((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))\z")) {
-          return true;
-        } else {
-          throw new Exception();
-        }
+        return true;
       }
       catch(Exception e) {
         return false;
@@ -25,7 +21,7 @@ namespace GoodFood {
     }
     public static bool IsRestaurantNameValid(string restaurant_name) {
       if(restaurant_name != null) {
-        if(Regex.IsMatch(restaurant_name, @"^[A-Za-zа-яА-Я]{3,15}$", RegexOptions.IgnoreCase))
+        if(Regex.IsMatch(restaurant_name, @"^[A-Za-zа-яА-Я\s]{3,15}$", RegexOptions.IgnoreCase))
           return true;
       }
       return false;

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -82,9 +83,12 @@ namespace GoodFood.ViewModel {
       set {
         time = value;
         int time_changed = 0;
+        if(time != "") {
+          SortByTypes = "Все рестораны";
+        }
         Restaurants = BufferRestaurants;
         SortedRestaurants = new ObservableCollection<Restaurant>();
-        if(time.Length == 2 && Char.IsDigit(time[0]) && Char.IsDigit(time[1])) {
+        if(Validation.IsTimeValid(Time)) {
           SortByTypes = "Все рестораны";
           if(time[0] == '0')
             time_changed = Convert.ToInt32(time.Substring(1, 1));
@@ -109,7 +113,6 @@ namespace GoodFood.ViewModel {
         return sortByTypes;
       }
       set {
-
         Restaurants = BufferRestaurants;
         sortByTypes = value;
         if(value!="Все рестораны") {
@@ -117,7 +120,8 @@ namespace GoodFood.ViewModel {
           foreach(var rest in Restaurants) {
             if(rest.Type_of_cuisine == value.Substring(value.IndexOf(" ") + 1)) {
               SortedRestaurants.Add(rest);
-            }          }
+            }         
+          }
           Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
           SortedRestaurants.Clear();
         }

@@ -169,7 +169,7 @@ namespace GoodFood.ViewModel {
         MessageBox.Show("Успешно!");
         mainViewModel.SelectedViewModel = new AllRestaurantsViewModel(mainViewModel);
       } else
-        MessageBox.Show("Неверные данные или столик уже забронирован!");
+        MessageBox.Show("Неверные данные или вы уже бронировали столик на это время!");
     }
     public ICommand restaurantRating => new DelegateCommand(RestaurantRating);
     private void RestaurantRating() {

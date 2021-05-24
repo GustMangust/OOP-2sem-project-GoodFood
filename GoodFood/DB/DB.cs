@@ -10,8 +10,7 @@ using System.Windows;
 namespace GoodFood {
   public static class DB {
     //private static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-    //private static string connectionString = ConfigurationManager.ConnectionStrings["LocalConnection"].ConnectionString;
-    private static string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+    private static string connectionString = ConfigurationManager.ConnectionStrings["LocalConnection"].ConnectionString;
     private static DbContextOptionsBuilder<RestaurantContext> optionsBuilderRestaurant = new DbContextOptionsBuilder<RestaurantContext>();
     private static DbContextOptions<RestaurantContext> optionsRestaurant = optionsBuilderRestaurant.UseSqlServer(connectionString).Options;
     private static DbContextOptionsBuilder<UserContext> optionsBuilderUser = new DbContextOptionsBuilder<UserContext>();
@@ -104,7 +103,7 @@ namespace GoodFood {
         MessageBox.Show(e.InnerException.Message);
       }
     }
-    public static BindingList<Restaurant> GetRestaurants() {
+    public static  BindingList<Restaurant>  GetRestaurants() {
       BindingList<Restaurant> restaurants = new BindingList<Restaurant>();
       try {
         RestaurantContext db = new RestaurantContext(optionsRestaurant);
@@ -125,7 +124,6 @@ namespace GoodFood {
       }
 
       catch(Exception e) {
-        MessageBox.Show(e.Message);
         return restaurants;
       }
     }
