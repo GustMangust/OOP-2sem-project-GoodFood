@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GoodFood.ViewModel.LogInViewModel">
+    <Position X="6.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AMAAACCAACAgAAAgAAAAAAAAAAAAAAACAAAAAgDAAAA=</HashCode>
+      <FileName>ViewModel\LogInViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoodFood.ViewModel.SignUpViewModel">
+    <Position X="8.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AUAAAAEIACAACAAgAAAEAAQABAAEAAACAAAAAgBAAAA=</HashCode>
+      <FileName>ViewModel\SignUpViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -10,15 +10,7 @@ namespace GoodFood.Model {
     public string Name { get; set; }
     public int Number_of_tables { get; set; }
     public int Start_time { get; set; }
-    private int _end_time;
-    public int End_time {
-      get {
-        return _end_time;
-      }
-      set {
-        _end_time = value;
-      }
-    }
+    public int End_time { get; set; }
     public string Type_of_cuisine { get; set; }
     public string Restaurant_String_Image { get; set; }
     [NotMapped]

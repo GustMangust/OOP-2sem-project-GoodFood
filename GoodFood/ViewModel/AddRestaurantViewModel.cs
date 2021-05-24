@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -150,7 +151,10 @@ namespace GoodFood.ViewModel {
     }
     public ICommand addRestaurant => new DelegateCommand(AddRestaurant);
     private void AddRestaurant() {
-      if(Validation.IsRestaurantNameValid(Name) && Start_time != End_time && Validation.IsTimeValid(Start_time) && Validation.IsTimeValid(End_time) && Validation.IsRestaurantNameValid(Type_of_cuisine) && Validation.IsNumberOfTablesValid(Number_of_tables) && ImageSource != null) {
+      if(ImageSource == null) {
+        MessageBox.Show("Добавьте картинку!");
+      }
+      if(Validation.IsRestaurantNameValid(Name) && Start_time != End_time && Validation.IsTimeValid(Start_time) && Validation.IsTimeValid(End_time) && Validation.IsRestaurantNameValid(Type_of_cuisine) && Validation.IsNumberOfTablesValid(Number_of_tables) && ImageSource!=null) {
         Image = new Picture(ImageConverter.ConvertToBitmap(ImageSource as BitmapImage));
         int start;
         int end;

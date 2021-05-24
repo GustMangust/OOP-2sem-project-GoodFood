@@ -7,7 +7,11 @@ namespace GoodFood {
     public static bool IsEmailValid(string emailaddress) {
       try {
         MailAddress m = new MailAddress(emailaddress);
-        return true;
+        if(Regex.IsMatch(emailaddress, @"^[\w!#$%&'*+\-\/=?\^_`{|}~]+(\.[\w!#$%&'*+\-\/=?\^_`{|}~]+)*@((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))\z")) {
+          return true;
+        } else {
+          throw new Exception();
+        }
       }
       catch(Exception e) {
         return false;
@@ -36,7 +40,11 @@ namespace GoodFood {
     public static bool IsNumberOfTablesValid(string number_of_tables) {
       try {
         int value = Convert.ToInt32(number_of_tables);
-        return true;
+        if(value > 0) {
+          return true;
+        } else {
+          return false;
+        }
       }
       catch(Exception e) {
         return false;

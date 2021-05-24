@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\monotone_fork_spoon_eat_launch_restaurant_dinner.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

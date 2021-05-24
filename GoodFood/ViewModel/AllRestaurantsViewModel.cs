@@ -117,8 +117,7 @@ namespace GoodFood.ViewModel {
           foreach(var rest in Restaurants) {
             if(rest.Type_of_cuisine == value.Substring(value.IndexOf(" ") + 1)) {
               SortedRestaurants.Add(rest);
-            }
-          }
+            }          }
           Restaurants = new ObservableCollection<Restaurant>(SortedRestaurants);
           SortedRestaurants.Clear();
         }

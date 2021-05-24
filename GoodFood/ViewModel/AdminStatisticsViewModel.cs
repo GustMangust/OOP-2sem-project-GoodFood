@@ -9,6 +9,29 @@ using System.Windows;
 
 namespace GoodFood.ViewModel {
   class AdminStatisticsViewModel:ViewModelBase {
+    private Visibility _existsVisibility=Visibility.Visible;
+
+    public Visibility ExistsVisibility {
+      get {
+        return _existsVisibility;
+      }
+      set { 
+        _existsVisibility = value;
+        RaisePropertyChanged("ExistsVisibility");
+      }
+    }
+    private Visibility _notExistsVisibility = Visibility.Collapsed;
+
+    public Visibility NotExistsVisibility {
+      get {
+        return _notExistsVisibility;
+      }
+      set {
+        _notExistsVisibility = value;
+        RaisePropertyChanged("NotExistsVisibility");
+      }
+    }
+
     public  string TimeOne { get; set; }
     public  string TimeTwo { get; set; }
     public  string TimeThree { get; set; }
@@ -16,6 +39,7 @@ namespace GoodFood.ViewModel {
     public string DayOfWeekTwo { get; set; }
     public string DayOfWeekThree { get; set; }
     public  AdminStatisticsViewModel(MainViewModel mainViewModel) {
+      NotExistsVisibility = Visibility.Collapsed;
       IEnumerable<TimeSpan> top3Time = DB.GetBookings()
                                     .GroupBy(q => q.DateTime.TimeOfDay)
                                     .OrderByDescending(gp => gp.Count())
@@ -39,6 +63,9 @@ namespace GoodFood.ViewModel {
         TimeTwo = timeList[1];
       }else if(timeList.Count() == 1) {
         TimeOne = timeList[0];
+      } else {
+        ExistsVisibility = Visibility.Collapsed;
+        NotExistsVisibility = Visibility.Visible;
       }
       IEnumerable<DayOfWeek> top3Day = DB.GetBookings()
                                     .GroupBy(q => q.DateTime.DayOfWeek)
@@ -59,6 +86,9 @@ namespace GoodFood.ViewModel {
         DayOfWeekTwo = dayList[1];
       } else if(dayList.Count() == 1) {
         DayOfWeekOne = dayList[0];
+      } else {
+        ExistsVisibility = Visibility.Collapsed;
+        NotExistsVisibility = Visibility.Visible;
       }
     }
   }

@@ -16,15 +16,16 @@
     <Grid Background="White">
         <StackPanel Margin="60 0 60 0">
             <Label Style="{StaticResource MaterialDesignLabel}" Content="Статистика посещений" HorizontalAlignment="Center" Margin="0 20 0 0" FontSize="40" FontFamily="Roboto"/>
-            <StackPanel Orientation="Horizontal" Margin="0 60 0 0">
-                <Label Style="{StaticResource MaterialDesignLabel}" Content="Самое популярное время: " HorizontalAlignment="Center" FontSize="35" FontFamily="Roboto"/>
+            <StackPanel Orientation="Horizontal" Visibility="{Binding ExistsVisibility}" Margin="0 60 0 0">
+                <Label Style="{StaticResource MaterialDesignLabel}" Content="Самое популярное время: "  HorizontalAlignment="Center" FontSize="35" FontFamily="Roboto"/>
                 <StackPanel>
                     <Label Style="{StaticResource MaterialDesignLabel}" Content="{Binding TimeOne}" HorizontalAlignment="Center" Margin="20 0 0 0" FontSize="35" FontFamily="Roboto"/>
                     <Label Style="{StaticResource MaterialDesignLabel}" Content="{Binding TimeTwo}" HorizontalAlignment="Center" Margin="20 0 0 0" FontSize="35" FontFamily="Roboto"/>
                     <Label Style="{StaticResource MaterialDesignLabel}" Content="{Binding TimeThree}" HorizontalAlignment="Center" Margin="20 0 0 0" FontSize="35" FontFamily="Roboto"/>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 60 0 0">
+            <Label Margin="0 100 0 0" Content="Пока ещё нет заказов!" Style="{StaticResource MaterialDesignLabel}" Visibility="{Binding NotExistsVisibility}" FontSize="35" HorizontalAlignment="Center" FontFamily="Roboto"/>
+            <StackPanel Orientation="Horizontal" Visibility="{Binding ExistsVisibility}" Margin="0 60 0 0">
                 <Label Style="{StaticResource MaterialDesignLabel}" Content="Самые популярные дни недели: " HorizontalAlignment="Center" FontSize="35" FontFamily="Roboto"/>
                 <StackPanel HorizontalAlignment="Left">
                     <Label  HorizontalAlignment="Left" Style="{StaticResource MaterialDesignLabel}" Content="{Binding DayOfWeekOne}"  Margin="20 0 0 0" FontSize="35" FontFamily="Roboto"/>

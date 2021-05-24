@@ -71,6 +71,8 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Image Stretch="Fill" Source="{Binding ImageSource, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,165,0,0" VerticalAlignment="Top" Grid.Column="1" Width="200" Height="170"/>
+        <StackPanel Background="LightGray" HorizontalAlignment="Left" Margin="0,165,0,0" VerticalAlignment="Top" Grid.Column="1" Width="230" Height="170">
+            <Image Stretch="Fill" Source="{Binding ImageSource, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Width="230" Height="170" />
+        </StackPanel>
     </Grid>
 </UserControl>
